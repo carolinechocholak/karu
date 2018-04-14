@@ -10,10 +10,16 @@ import UIKit
 
 class EventPageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var eventScrollView: UICollectionView!
+    
+   
+    
+    
     let reuseIdentifier = "cell"
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventScrollView.backgroundColor = UIColor.clear
+       eventScrollView.backgroundColor = UIColor.clear
+        eventScrollView.allowsMultipleSelection = false
+        
 
       
 
@@ -26,6 +32,7 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     var items = ["Swim With Mike", "Lavalab", "USC Field Hockey", "SC Hackers", "Relay for Life"]
     
+
     
     // MARK: - UICollectionViewDataSource protocol
     
@@ -35,6 +42,7 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     // make a cell for each cell index path
+    var selectedIndex = Int ()
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // get a reference to our storyboard cell
@@ -42,21 +50,34 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.orgName.text = self.items[indexPath.item]
-        cell.backgroundColor = UIColor.clear // make cell more visible in our example project
+       
+        //cell.orgName.backgroundColor = UIColor.clear
         
-        cell.orgName.layer.cornerRadius = 20.0
-        cell.orgName.layer.borderWidth = 5.0
-        cell.orgName.layer.borderColor = UIColor.clear.cgColor
-        cell.orgName.layer.masksToBounds = true
-      
+        cell.backgroundColor = UIColor.white
+        cell.alpha = 0.4
+        cell.orgName.backgroundColor = UIColor.clear
+        cell.orgName.alpha = 1
+        cell.orgName.textColor = UIColor.black
+        
+        
+        
+        
+        
+        
         return cell
+      
+      
     }
     
     // MARK: - UICollectionViewDelegate protocol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
-        print("You selected cell #\(indexPath.item)!")
+        selectedIndex = indexPath.row
+        //eventScrollView.reloadData();
+        
+        
+       
     }
 
 }

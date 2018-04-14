@@ -8,45 +8,75 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var EmailTF: UITextField!
     @IBOutlet weak var NameTF: UITextField!
     @IBOutlet weak var Background: UIImageView!
+    let recognizer = UITapGestureRecognizer()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.NameTF.layer.cornerRadius = 20.0
-       // self.NameTF.layer.borderWidth = 2.0
-        self.NameTF.layer.borderWidth = 5.0
-        self.NameTF.layer.borderColor = UIColor.white.cgColor
-        self.NameTF.layer.masksToBounds = true
-        self.passwordTF.layer.cornerRadius = 20.0
-        self.passwordTF.layer.borderWidth = 2.0
-        self.passwordTF.layer.masksToBounds = true
-        self.passwordTF.layer.borderColor = UIColor.white.cgColor
-        self.usernameTF.layer.cornerRadius = 20.0
-        self.usernameTF.layer.borderWidth = 2.0
-        self.usernameTF.layer.masksToBounds = true
-        self.usernameTF.layer.borderColor = UIColor.white.cgColor
-        self.EmailTF.layer.cornerRadius = 20.0
-        self.EmailTF.layer.borderWidth = 2.0
-        self.EmailTF.layer.masksToBounds = true
-        self.EmailTF.layer.borderColor = UIColor.white.cgColor
+        self.passwordTF.delegate = self
+        self.usernameTF.delegate = self
+        self.EmailTF.delegate = self
+        self.NameTF.delegate = self
+        self.profileImage.layer.cornerRadius = profileImage.frame.size.width / 2.0
+        self.profileImage.clipsToBounds = true
+        self.profileImage.isUserInteractionEnabled = true
+        
+        
+        
         
         
         
         // Do any additional setup after loading the view.
     }
 
+    func picTapped() {
+        let controller = UIImagePickerController()
+        controller.delegate = self
+        controller.sourceType = .photoLibrary
+        
+        present(controller, animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
         // Dispose of any resources that can be recreated.
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.passwordTF.resignFirstResponder()
+        self.usernameTF.resignFirstResponder()
+        self.EmailTF.resignFirstResponder()
+        self.NameTF.resignFirstResponder()
+        return true
+    }
     
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch:UITouch = touches.first!
+        if touch.view == self.profileImage {
+            let controller = UIImagePickerController()
+            controller.delegate = self
+            controller.sourceType = .photoLibrary
+        
+            present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        profileImage.image = selectedImage
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
