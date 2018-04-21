@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA3DB797FD1E664E0986BACB /* Pods_Karu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F313952E2EB78CB08248FE41 /* Pods_Karu.framework */; };
 		FD00ABF52082BBD8002E60EB /* JoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ABF42082BBD8002E60EB /* JoinTeamViewController.swift */; };
 		FD38C30220735B6C00F01A99 /* din-round-pro-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FD38C30120735B6B00F01A99 /* din-round-pro-regular.otf */; };
 		FD38C30520735D8700F01A99 /* din-round-pro-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FD38C30420735D8700F01A99 /* din-round-pro-bold.otf */; };
@@ -42,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B79BC81814A00DC6D90BF2AB /* Pods-Karu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Karu/Pods-Karu.debug.xcconfig"; sourceTree = "<group>"; };
+		DADDA4ECF6A738BFF365EDA1 /* Pods-Karu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Karu/Pods-Karu.release.xcconfig"; sourceTree = "<group>"; };
+		F313952E2EB78CB08248FE41 /* Pods_Karu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Karu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD00ABF42082BBD8002E60EB /* JoinTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTeamViewController.swift; sourceTree = "<group>"; };
 		FD38C30120735B6B00F01A99 /* din-round-pro-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "din-round-pro-regular.otf"; sourceTree = "<group>"; };
 		FD38C30420735D8700F01A99 /* din-round-pro-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "din-round-pro-bold.otf"; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3DB797FD1E664E0986BACB /* Pods_Karu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +95,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52B5494EBEE9A18010366655 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B79BC81814A00DC6D90BF2AB /* Pods-Karu.debug.xcconfig */,
+				DADDA4ECF6A738BFF365EDA1 /* Pods-Karu.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		60DAF40B2D50D65070704F47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F313952E2EB78CB08248FE41 /* Pods_Karu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FD38C30320735BFC00F01A99 /* KaruFont */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +128,8 @@
 				FDE248A2206838AA00FA1CDC /* KaruTests */,
 				FDE248AD206838AA00FA1CDC /* KaruUITests */,
 				FDE2488C206838AA00FA1CDC /* Products */,
+				52B5494EBEE9A18010366655 /* Pods */,
+				60DAF40B2D50D65070704F47 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,9 +188,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDE248B3206838AA00FA1CDC /* Build configuration list for PBXNativeTarget "Karu" */;
 			buildPhases = (
+				8CC7AC7AFEB24A85B33CA995 /* [CP] Check Pods Manifest.lock */,
 				FDE24887206838AA00FA1CDC /* Sources */,
 				FDE24888206838AA00FA1CDC /* Frameworks */,
 				FDE24889206838AA00FA1CDC /* Resources */,
+				796C0F8D74C312C68FF7B04B /* [CP] Embed Pods Frameworks */,
+				3BC600E5C7F7562BCA59ACDB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -287,6 +314,78 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3BC600E5C7F7562BCA59ACDB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Karu/Pods-Karu-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		796C0F8D74C312C68FF7B04B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Karu/Pods-Karu-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Karu/Pods-Karu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CC7AC7AFEB24A85B33CA995 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Karu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FDE24887206838AA00FA1CDC /* Sources */ = {
@@ -464,6 +563,7 @@
 		};
 		FDE248B4206838AA00FA1CDC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B79BC81814A00DC6D90BF2AB /* Pods-Karu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -480,6 +580,7 @@
 		};
 		FDE248B5206838AA00FA1CDC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DADDA4ECF6A738BFF365EDA1 /* Pods-Karu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

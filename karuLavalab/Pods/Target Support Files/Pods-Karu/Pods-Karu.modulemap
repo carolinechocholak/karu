@@ -1,0 +1,6 @@
+framework module Pods_Karu {
+  umbrella header "Pods-Karu-umbrella.h"
+
+  export *
+  module * { export * }
+}
