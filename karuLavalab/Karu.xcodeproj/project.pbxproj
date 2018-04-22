@@ -211,7 +211,6 @@
 				FDE24888206838AA00FA1CDC /* Frameworks */,
 				FDE24889206838AA00FA1CDC /* Resources */,
 				796C0F8D74C312C68FF7B04B /* [CP] Embed Pods Frameworks */,
-				3BC600E5C7F7562BCA59ACDB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -334,21 +333,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3BC600E5C7F7562BCA59ACDB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Karu/Pods-Karu-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		796C0F8D74C312C68FF7B04B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
