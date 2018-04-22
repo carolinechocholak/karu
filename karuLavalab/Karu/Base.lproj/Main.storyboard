@@ -159,7 +159,7 @@ YUVO</string>
                                     <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8Qi-V3-drg" kind="custom" identifier="SignUpSegue" customClass="IntroSegue" customModule="Karu" customModuleProvider="target" id="GcE-TM-jVc"/>
+                                    <action selector="signupButtonPressed:" destination="UFy-Un-co0" eventType="touchUpInside" id="bN5-Dv-JFG"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUd-nW-dUC">
@@ -225,6 +225,7 @@ YUVO</string>
                         <outlet property="passwordTF" destination="vS4-jx-jZ0" id="y6C-ma-FGe"/>
                         <outlet property="profileImage" destination="CG8-Pt-icO" id="ct2-xT-uBA"/>
                         <outlet property="usernameTF" destination="41d-cE-qhB" id="129-qP-ECr"/>
+                        <segue destination="8Qi-V3-drg" kind="custom" identifier="SignUpSegue" customClass="IntroSegue" customModule="Karu" customModuleProvider="target" id="ky4-YN-XBR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1H3-4L-CuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,7 +253,7 @@ YUVO</string>
                                     <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8Qi-V3-drg" kind="custom" identifier="BeginSegue" customClass="IntroSegue" customModule="Karu" customModuleProvider="target" id="s4L-CD-J9m"/>
+                                    <action selector="loginButtonPressed:" destination="Ope-6b-gKq" eventType="touchUpInside" id="dw8-Ne-l0G"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New to Yuvo?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wM-r9-tEp">
@@ -335,11 +336,12 @@ YUVO</string>
                     <connections>
                         <outlet property="passwordTF" destination="WAk-oh-r2R" id="k78-BH-iz9"/>
                         <outlet property="usernameTF" destination="oS7-Ub-csj" id="Pck-yy-bf7"/>
+                        <segue destination="8Qi-V3-drg" kind="custom" identifier="BeginSegue" customClass="IntroSegue" customModule="Karu" customModuleProvider="target" id="lW1-Vf-aCq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWj-Of-mKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="864.79999999999995" y="133.5832083958021"/>
+            <point key="canvasLocation" x="918" y="122"/>
         </scene>
         <!--Event Page View Controller-->
         <scene sceneID="yMO-Ln-IDA">
@@ -924,9 +926,11 @@ Enter your new team’s name and then hit the plus! </string>
                         <outlet property="buttonStackView" destination="M37-X4-VdI" id="zJ5-OL-WCc"/>
                         <outlet property="dataStackView" destination="rJ3-Yt-HtX" id="Ka0-DJ-dD0"/>
                         <outlet property="groupButton" destination="p29-I3-7VT" id="OTG-2M-khf"/>
+                        <outlet property="nameLabel" destination="Mh7-Dt-s03" id="erO-0C-e9o"/>
                         <outlet property="nameStackView" destination="Eg8-v9-VUi" id="6uT-co-5wz"/>
                         <outlet property="profilePic" destination="17w-88-3pt" id="rVG-3q-7Ye"/>
                         <outlet property="teamButton" destination="dDy-TN-Aug" id="hIK-5A-izz"/>
+                        <outlet property="teamCountLabel" destination="7Yk-sk-gRl" id="A9O-O6-GTv"/>
                         <segue destination="qv2-oc-ZGe" kind="show" identifier="groupToOrgSegue" animates="NO" id="dLC-Aa-GgO"/>
                     </connections>
                 </viewController>
@@ -1175,7 +1179,7 @@ Hours</string>
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8Qi-V3-drg" kind="custom" identifier="joinedTeamSegue" customClass="IntroSegue" customModule="Karu" customModuleProvider="target" id="AtK-71-2U4"/>
+                                    <action selector="joinTeamPressed:" destination="2QS-Oy-J77" eventType="touchUpInside" id="QGc-c8-tae"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="squ-M5-Mpp">
@@ -1260,7 +1264,9 @@ Hours</string>
         <image name="yuvo logo copy" width="134" height="154"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zgk-mx-Mqf"/>
-        <segue reference="0wi-8a-QPS"/>
+        <segue reference="Duo-yI-EED"/>
+        <segue reference="XOO-L6-B5f"/>
+        <segue reference="lW1-Vf-aCq"/>
+        <segue reference="BzX-wo-Myx"/>
     </inferredMetricsTieBreakers>
 </document>

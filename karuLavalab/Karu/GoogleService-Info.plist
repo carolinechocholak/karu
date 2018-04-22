@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>1036933653499-i3qf50r80figo38of1ec34adam0eumnd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1036933653499-i3qf50r80figo38of1ec34adam0eumnd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBlP6XROqYmC5n_nEp8v_rpH8l2kW1GL9g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1036933653499</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.chochola.Karu</string>
+	<key>PROJECT_ID</key>
+	<string>karu-77804</string>
+	<key>STORAGE_BUCKET</key>
+	<string>karu-77804.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1036933653499:ios:8f02bb63ff677a0f</string>
+	<key>DATABASE_URL</key>
+	<string>https://karu-77804.firebaseio.com</string>
+</dict>
+</plist>

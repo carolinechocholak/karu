@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -27,14 +28,27 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UINavigationC
         self.profileImage.clipsToBounds = true
         self.profileImage.isUserInteractionEnabled = true
         
-        
-        
-        
-        
-        
         // Do any additional setup after loading the view.
     }
-
+    @IBAction func signupButtonPressed(_ sender: Any) {
+        let email = EmailTF.text!
+        let password = passwordTF.text!
+        Auth.auth().createUser(withEmail: email, password: password, completion : {(user, error) in
+            if(error != nil){
+                print(error.debugDescription)
+            }
+            if let u = user {
+                print(u.uid)
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = self.NameTF.text!
+                changeRequest?.commitChanges { (error) in
+                    self.performSegue(withIdentifier: "SignUpSegue", sender: nil)
+                }
+            }
+            print("success")
+        })
+    }
+    
     func picTapped() {
         let controller = UIImagePickerController()
         controller.delegate = self
@@ -75,6 +89,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UINavigationC
         profileImage.image = selectedImage
         
         dismiss(animated: true, completion: nil)
+    }
+    fileprivate func fieldsFilled() -> Bool {
+        if(passwordTF.text == nil || usernameTF.text == nil || EmailTF.text == nil || NameTF.text == nil) {
+            return false
+        }
+        return true
     }
     
     /*

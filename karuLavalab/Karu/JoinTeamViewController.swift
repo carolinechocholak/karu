@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class JoinTeamViewController: UIViewController, UITextFieldDelegate {
 
@@ -26,7 +27,33 @@ class JoinTeamViewController: UIViewController, UITextFieldDelegate {
         codeTF.layer.masksToBounds = true
         // Do any additional setup after loading the view.
     }
-
+    @IBAction func joinTeamPressed(_ sender: Any) {
+        let teamCode = codeTF.text!
+        joinTeam(teamCode: teamCode)
+    }
+    
+    fileprivate func joinTeam(teamCode: String) {
+        let user =  Auth.auth().currentUser
+        let teamsRef = Firestore.firestore().collection("Teams")
+        let usersRef = Firestore.firestore().collection("Users")
+        if let user = user {
+            let uid = user.uid
+            let query = teamsRef.whereField("code", isEqualTo: teamCode)
+            query.getDocuments {(querysnapshot, err) in
+                if let err = err {
+                    print("Error getting docs: \(err)")
+                } else {
+                    for document in querysnapshot!.documents {
+                        let docId = document.documentID
+                        teamsRef.document(docId).updateData(["users.\(uid)": true])
+                        usersRef.document(String(uid)).updateData(["teams.\(docId)" : true])
+                        
+                    }
+                }
+            }
+        }
+    }
+    
    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         codeTF.resignFirstResponder()
