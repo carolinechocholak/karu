@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 
 class TeamPageViewController: UIViewController {
     var myButton: UIButton!
@@ -21,13 +21,34 @@ class TeamPageViewController: UIViewController {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var nameStackView: UIStackView!
     @IBOutlet weak var dataStackView: UIStackView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var teamCountLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        let user = Auth.auth().currentUser
+        let displayName = user?.displayName
+        
+        nameLabel.text = displayName
+        
+        getTeamCount()
         
         
 
         // Do any additional setup after loading the view.
+    }
+    fileprivate func getTeamCount() {
+        let user = Auth.auth().currentUser
+        let uid = user!.uid
+        let teamsRef = Firestore.firestore().collection("Teams")
+        let query = teamsRef.whereField("users.\(uid)", isEqualTo: true)
+        query.getDocuments {(querysnapshot, err) in
+            if let err = err {
+                print("Error getting docs: \(err)")
+            } else {
+                print(String(querysnapshot!.count) + " Count " )
+                self.teamCountLabel.text = (String(querysnapshot!.count) + "\n Teams")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
