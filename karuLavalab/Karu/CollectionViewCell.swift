@@ -16,17 +16,21 @@ class CollectionViewCell: UICollectionViewCell {
         didSet{
             if self.isSelected
             {
-                self.backgroundColor = UIColor.blue
-                self.orgName.textColor = UIColor.white
+                self.backgroundColor = UIColor.white
+                self.orgName.textColor = UIColor.black
                 self.orgName.alpha = 1
-                self.alpha = 1
+                self.orgName.backgroundColor = UIColor(displayP3Red: 0, green: 187, blue: 224, alpha: 1)
+                self.alpha = 0.4
+                
                 
             }
             else
             {
                 self.backgroundColor = UIColor.white
-                self.orgName.textColor = UIColor.lightGray
                 self.alpha = 0.4
+                self.orgName.backgroundColor = UIColor.clear
+                self.orgName.alpha = 1
+                self.orgName.textColor = UIColor.black
                 
             }
         }
