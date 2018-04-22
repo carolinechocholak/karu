@@ -57,7 +57,7 @@ class TeamPageViewController: UIViewController {
     self.profilePic.frame.origin.x += 15
     self.profilePic.frame.size.width -= 20
     self.profilePic.frame.size.height -= 20
-       /* let newImage = UIImage(named: "Organization Button Pressed")
+     /*   let newImage = UIImage(named: "Organization Button Pressed")
         let otherImage = UIImage(named: "Team Button 3")
         self.groupButton.setImage(newImage, for: UIControlState.normal)
         self.teamButton.setImage(otherImage, for: UIControlState.normal) */

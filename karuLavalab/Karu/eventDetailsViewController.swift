@@ -25,8 +25,13 @@ class UILabelPadding: UILabel {
     
     
 }
+
+
 class eventDetailsViewController: UIViewController {
 
+    @IBOutlet weak var NotGoingButton: UIButton!
+    @IBOutlet weak var GoingButton: UIButton!
+    @IBOutlet weak var updateButton: UIButton!
     
     @IBOutlet weak var announcementsDetail: UILabelPadding!
     
@@ -35,7 +40,14 @@ class eventDetailsViewController: UIViewController {
     @IBOutlet weak var locationDetail: UILabelPadding!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+         super.viewDidLoad()
+       
+        
+        
+        
+       
+        GoingButton.isHidden = true
+        NotGoingButton.isHidden = true
         let customColor = UIColor(red: 89.0/255.0, green: 183.0/255.0, blue: 211.0/255.0, alpha: 1.0)
         
         announcementsDetail.layer.borderColor = customColor.cgColor
@@ -59,12 +71,30 @@ class eventDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func updateTouched(_ sender: Any) {
+        self.updateButton.isHidden = true
+        self.GoingButton.isHidden = false
+        self.NotGoingButton.isHidden = false
     }
     
 
+    @IBAction func goingTouched(_ sender: Any) {
+        let alertController = UIAlertController(title: "You have just changed your status to this event to Going, is this correct?", message: "This is an alert.", preferredStyle: .alert)
+        
+        let action1 = UIAlertAction(title: "Confirm", style: .default) { (action:UIAlertAction) in
+            print("You've pressed default");
+        }
+        
+        
+        let action2 = UIAlertAction(title: "Back", style: .destructive) { (action:UIAlertAction) in
+            print("You've pressed the destructive");
+        }
+        alertController.addAction(action1)
+        alertController.addAction(action2)
+      
+        self.present(alertController, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

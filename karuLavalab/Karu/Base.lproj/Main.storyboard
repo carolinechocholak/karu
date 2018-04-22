@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zdu-yh-uLG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vJE-hm-nSB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -687,6 +687,20 @@ YUVO</string>
                                     <constraint firstAttribute="height" constant="30" id="0mr-PT-8OJ"/>
                                 </constraints>
                                 <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="updateTouched:" destination="dCf-tQ-D4P" eventType="touchUpInside" id="aRY-2A-b4X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GfH-yA-qPt">
+                                <rect key="frame" x="156" y="168" width="89" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Bg7-DU-yO4"/>
+                                    <constraint firstAttribute="height" constant="30" id="Mvf-WF-Ag7"/>
+                                </constraints>
+                                <state key="normal" title="Going"/>
+                                <connections>
+                                    <action selector="goingTouched:" destination="dCf-tQ-D4P" eventType="touchUpInside" id="5I7-DS-WR4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="YUVO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXj-ts-J20">
                                 <rect key="frame" x="156" y="35" width="63" height="39"/>
@@ -697,24 +711,39 @@ YUVO</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUj-Cr-9U1">
+                                <rect key="frame" x="270" y="168" width="89" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="DXH-2v-vdo"/>
+                                    <constraint firstAttribute="height" constant="30" id="rEs-Ny-RTP"/>
+                                </constraints>
+                                <state key="normal" title="Not Going"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="orL-ml-0bX" firstAttribute="top" secondItem="btq-M6-OCM" secondAttribute="bottom" constant="8" id="0lD-Jh-I9i"/>
                             <constraint firstItem="FWz-th-6NH" firstAttribute="trailing" secondItem="JvX-Of-GVx" secondAttribute="trailing" id="4Ni-Fz-0rk"/>
                             <constraint firstItem="btq-M6-OCM" firstAttribute="top" secondItem="Das-hA-an4" secondAttribute="bottom" constant="20" id="4zz-nk-eIC"/>
+                            <constraint firstItem="FWz-th-6NH" firstAttribute="top" secondItem="fUj-Cr-9U1" secondAttribute="bottom" constant="28" id="8rW-Mh-zRu"/>
                             <constraint firstItem="FWz-th-6NH" firstAttribute="top" secondItem="orL-ml-0bX" secondAttribute="bottom" constant="28" id="Ahq-wB-MdN"/>
                             <constraint firstItem="QXj-ts-J20" firstAttribute="leading" secondItem="yCj-Lb-TQq" secondAttribute="trailing" constant="112" id="CJU-kw-eiS"/>
                             <constraint firstItem="yCj-Lb-TQq" firstAttribute="top" secondItem="JvX-Of-GVx" secondAttribute="top" constant="19" id="KNg-6B-hQ4"/>
                             <constraint firstItem="JvX-Of-GVx" firstAttribute="trailing" secondItem="orL-ml-0bX" secondAttribute="trailing" constant="130" id="L0o-hE-G3F"/>
                             <constraint firstItem="JvX-Of-GVx" firstAttribute="trailing" secondItem="Das-hA-an4" secondAttribute="trailing" constant="16" id="Oh4-fO-Kcw"/>
+                            <constraint firstItem="GfH-yA-qPt" firstAttribute="top" secondItem="btq-M6-OCM" secondAttribute="bottom" constant="8" id="SXU-Sz-nfw"/>
                             <constraint firstItem="JvX-Of-GVx" firstAttribute="trailing" secondItem="btq-M6-OCM" secondAttribute="trailing" constant="6" id="Use-i3-yhx"/>
+                            <constraint firstItem="fUj-Cr-9U1" firstAttribute="leading" secondItem="orL-ml-0bX" secondAttribute="trailing" constant="25" id="XYQ-YK-YTC"/>
+                            <constraint firstItem="fUj-Cr-9U1" firstAttribute="top" secondItem="btq-M6-OCM" secondAttribute="bottom" constant="8" id="a3m-lE-LjI"/>
                             <constraint firstItem="Das-hA-an4" firstAttribute="leading" secondItem="QXj-ts-J20" secondAttribute="trailing" constant="111" id="en7-LG-aI1"/>
+                            <constraint firstItem="fUj-Cr-9U1" firstAttribute="leading" secondItem="GfH-yA-qPt" secondAttribute="trailing" constant="25" id="f6T-Xt-IuL"/>
                             <constraint firstItem="Das-hA-an4" firstAttribute="top" secondItem="JvX-Of-GVx" secondAttribute="top" constant="20" id="g2e-6d-cej"/>
+                            <constraint firstItem="JvX-Of-GVx" firstAttribute="trailing" secondItem="fUj-Cr-9U1" secondAttribute="trailing" constant="16" id="gk0-Xg-y22"/>
                             <constraint firstItem="orL-ml-0bX" firstAttribute="leading" secondItem="sMg-pB-PR9" secondAttribute="trailing" constant="42" id="gp1-ma-FLs"/>
                             <constraint firstItem="FWz-th-6NH" firstAttribute="leading" secondItem="JvX-Of-GVx" secondAttribute="leading" id="kiJ-F2-9pR"/>
                             <constraint firstItem="sMg-pB-PR9" firstAttribute="top" secondItem="yCj-Lb-TQq" secondAttribute="bottom" constant="31" id="l5u-Q4-4Cz"/>
                             <constraint firstItem="Das-hA-an4" firstAttribute="leading" secondItem="QXj-ts-J20" secondAttribute="trailing" constant="111" id="neJ-4t-R61"/>
+                            <constraint firstItem="GfH-yA-qPt" firstAttribute="leading" secondItem="sMg-pB-PR9" secondAttribute="trailing" constant="42" id="oCb-fI-Pmi"/>
                             <constraint firstItem="FWz-th-6NH" firstAttribute="top" secondItem="sMg-pB-PR9" secondAttribute="bottom" constant="28" id="rRi-uw-PTo"/>
                             <constraint firstItem="FWz-th-6NH" firstAttribute="bottom" secondItem="JvX-Of-GVx" secondAttribute="bottom" id="sD5-0i-b5d"/>
                             <constraint firstItem="QXj-ts-J20" firstAttribute="leading" secondItem="yCj-Lb-TQq" secondAttribute="trailing" constant="112" id="tlw-uS-Kqu"/>
@@ -722,15 +751,19 @@ YUVO</string>
                             <constraint firstItem="QXj-ts-J20" firstAttribute="top" secondItem="JvX-Of-GVx" secondAttribute="top" constant="15" id="ww1-Xr-0TY"/>
                             <constraint firstItem="btq-M6-OCM" firstAttribute="top" secondItem="QXj-ts-J20" secondAttribute="bottom" constant="15" id="x85-l4-PrQ"/>
                             <constraint firstItem="btq-M6-OCM" firstAttribute="leading" secondItem="sMg-pB-PR9" secondAttribute="trailing" constant="42" id="xCW-uQ-PgU"/>
+                            <constraint firstItem="FWz-th-6NH" firstAttribute="top" secondItem="GfH-yA-qPt" secondAttribute="bottom" constant="28" id="yQm-7h-BIn"/>
                             <constraint firstItem="yCj-Lb-TQq" firstAttribute="leading" secondItem="JvX-Of-GVx" secondAttribute="leading" constant="16" id="yaQ-Ua-LaA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JvX-Of-GVx"/>
                     </view>
                     <connections>
+                        <outlet property="GoingButton" destination="GfH-yA-qPt" id="Fan-Jh-p22"/>
+                        <outlet property="NotGoingButton" destination="fUj-Cr-9U1" id="sON-P4-uQP"/>
                         <outlet property="announcementsDetail" destination="Thl-w0-uUz" id="OFl-aY-h7L"/>
                         <outlet property="dateDetail" destination="lzI-nK-a3p" id="15B-Gv-8VG"/>
                         <outlet property="locationDetail" destination="43W-lX-IhX" id="xU5-qa-PdJ"/>
                         <outlet property="timeLabel" destination="RyA-E6-pkR" id="qgw-rR-vgT"/>
+                        <outlet property="updateButton" destination="orL-ml-0bX" id="pue-Cx-t6g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wcl-Fv-Hha" userLabel="First Responder" sceneMemberID="firstResponder"/>

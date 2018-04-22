@@ -33,7 +33,7 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
         button.titleLabel?.text = "Hello"
        
         currY = 0
-         eventButtonView.addSubview(makeButtonWithText(text: "Indie Button"))
+         eventButtonView.addSubview(makeButtonWithText(text: "Swim with Mike"))
         eventButtonView.addSubview(makeButtonWithText(text: "Test"))
         eventButtonView.addSubview(makeButtonWithText(text: "Another"))
         //myButton = button
@@ -50,36 +50,52 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
         //Set a frame for the button. Ignored in AutoLayout/ Stack Views
         myButton.frame = CGRect(x: 0, y: currY, width: 308, height: 155)
         
+        let charity = UIImage(named: "charity")
         
         myButton.layer.cornerRadius = 5
         //Set background color
-        myButton.backgroundColor = UIColor.blue
+        myButton.setBackgroundImage(charity, for: UIControlState.normal)
+        myButton.tintColor = UIColor(displayP3Red: 0, green: 255, blue: 0, alpha: 0.4)
+        
         
         myButton.showsTouchWhenHighlighted = true
-        //myButton.setTitleColor(<#T##color: UIColor?##UIColor?#>, for: [])
         
+       let newImage = UIImage(named: "AvailableBanner")
+        let image = UIImageView(image: newImage)
         
+        myButton.addSubview(image)
         myButton.contentHorizontalAlignment = .left
+       
+        image.contentMode = .scaleToFill
+        image.layer.masksToBounds = true
+        //image.heightAnchor.constraint(equalToConstant: 83.0).isActive = true
+        //image.widthAnchor.constraint(equalToConstant: 83.0).isActive = true
+        image.leftAnchor.constraint(equalTo: myButton.leftAnchor, constant: -2.0).isActive = true
+        image.topAnchor.constraint(equalTo: myButton.topAnchor, constant: -2.0).isActive = true
+
+        myButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+        myButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        myButton.layer.shadowOpacity = 0.3
         
+       
         myButton.titleEdgeInsets = UIEdgeInsetsMake(100, 10, 0, 0)
         let label = UILabelPadding(frame: CGRect(x: 0, y: currY, width: 220, height: 30))
         label.translatesAutoresizingMaskIntoConstraints = false
         label.center = CGPoint(x: 160, y: 284)
         label.textAlignment = .center
         label.backgroundColor = UIColor.white
+        label.layer.cornerRadius = 4.0
+        label.alpha = 0.8
+        label.layer.masksToBounds = true
         label.textColor = UIColor.black
         label.text = text
         myButton.addSubview(label)
         
-       // let leadingConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: myButton.superview, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 20)
-        //let trailingConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: myButton.superview, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: 100)
-        //label.addConstraint(leadingConstraint)
-       // label.addConstraint(trailingConstraint)
-       // label.centerXAnchor.anchorWithOffset(to: <#T##NSLayoutXAxisAnchor#>)
-        label.leftAnchor.constraint(equalTo: myButton.leftAnchor, constant: 20.0).isActive = true
-        //label.centerXAnchor.constraint(equalTo: myButton.leftAnchor.anchorWithOffset(to: <#T##NSLayoutXAxisAnchor#>)).isActive = true
+      
+        label.leftAnchor.constraint(equalTo: myButton.leftAnchor, constant: 2.0).isActive = true
+       
         label.bottomAnchor.constraint(equalTo: myButton.bottomAnchor, constant: -20.0).isActive = true
-        //label.centerYAnchor.constraint(equalTo: myButton.topAnchor).isActive = true
+       
        
         myButton.addTarget(self,
                            action: #selector(helloButton),
