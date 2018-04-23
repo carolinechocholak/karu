@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BA3DB797FD1E664E0986BACB /* Pods_Karu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F313952E2EB78CB08248FE41 /* Pods_Karu.framework */; };
+		D28B50C7208D2C8800E6BDCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D28B50C6208D2C8800E6BDCB /* GoogleService-Info.plist */; };
+		D2D8ED77208D31E30095C134 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8ED75208D31E00095C134 /* DataModels.swift */; };
+		D2D8ED78208D31E30095C134 /* LocalCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8ED76208D31E10095C134 /* LocalCollection.swift */; };
 		FD00ABF52082BBD8002E60EB /* JoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ABF42082BBD8002E60EB /* JoinTeamViewController.swift */; };
 		FD19A22C208B23A00015E12E /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19A22B208B23A00015E12E /* DashboardViewController.swift */; };
 		FD19A22E208BAB5B0015E12E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19A22D208BAB5B0015E12E /* FirstViewController.swift */; };
@@ -50,6 +53,9 @@
 
 /* Begin PBXFileReference section */
 		B79BC81814A00DC6D90BF2AB /* Pods-Karu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Karu/Pods-Karu.debug.xcconfig"; sourceTree = "<group>"; };
+		D28B50C6208D2C8800E6BDCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D2D8ED75208D31E00095C134 /* DataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+		D2D8ED76208D31E10095C134 /* LocalCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalCollection.swift; sourceTree = "<group>"; };
 		DADDA4ECF6A738BFF365EDA1 /* Pods-Karu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Karu/Pods-Karu.release.xcconfig"; sourceTree = "<group>"; };
 		F313952E2EB78CB08248FE41 /* Pods_Karu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Karu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD00ABF42082BBD8002E60EB /* JoinTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTeamViewController.swift; sourceTree = "<group>"; };
@@ -158,11 +164,14 @@
 		FDE2488D206838AA00FA1CDC /* Karu */ = {
 			isa = PBXGroup;
 			children = (
+				D28B50C6208D2C8800E6BDCB /* GoogleService-Info.plist */,
 				FD38C30320735BFC00F01A99 /* KaruFont */,
 				FDE2488E206838AA00FA1CDC /* AppDelegate.swift */,
 				FD3E32A1207C551A005E1CA3 /* LogInViewController.swift */,
 				FDE24890206838AA00FA1CDC /* ViewController.swift */,
 				FDE24892206838AA00FA1CDC /* Main.storyboard */,
+				D2D8ED75208D31E00095C134 /* DataModels.swift */,
+				D2D8ED76208D31E10095C134 /* LocalCollection.swift */,
 				FD19A231208D05B30015E12E /* eventDetailsViewController.swift */,
 				FD19A22D208BAB5B0015E12E /* FirstViewController.swift */,
 				FD19A22B208B23A00015E12E /* DashboardViewController.swift */,
@@ -314,6 +323,7 @@
 				FDE24896206838AA00FA1CDC /* Assets.xcassets in Resources */,
 				FD38C30520735D8700F01A99 /* din-round-pro-bold.otf in Resources */,
 				FDE24894206838AA00FA1CDC /* Main.storyboard in Resources */,
+				D28B50C7208D2C8800E6BDCB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,11 +427,13 @@
 				FD19A22E208BAB5B0015E12E /* FirstViewController.swift in Sources */,
 				FD92384D20768AF700ABC194 /* CollectionViewCell.swift in Sources */,
 				FD3E32A2207C551A005E1CA3 /* LogInViewController.swift in Sources */,
+				D2D8ED78208D31E30095C134 /* LocalCollection.swift in Sources */,
 				FD00ABF52082BBD8002E60EB /* JoinTeamViewController.swift in Sources */,
 				FD19A232208D05B30015E12E /* eventDetailsViewController.swift in Sources */,
 				FD9FC5DF2086FE1C005F2B58 /* BeginViewController.swift in Sources */,
 				FDADDFF920853105005ECF25 /* TeamPageViewController.swift in Sources */,
 				FD19A22C208B23A00015E12E /* DashboardViewController.swift in Sources */,
+				D2D8ED77208D31E30095C134 /* DataModels.swift in Sources */,
 				FD92384B2075F06100ABC194 /* EventPageViewController.swift in Sources */,
 				FDE2488F206838AA00FA1CDC /* AppDelegate.swift in Sources */,
 			);

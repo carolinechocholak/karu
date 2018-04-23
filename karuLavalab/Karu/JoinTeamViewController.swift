@@ -50,6 +50,7 @@ class JoinTeamViewController: UIViewController, UITextFieldDelegate {
                         
                     }
                 }
+                self.performSegue(withIdentifier: "JoinedTeamSegue", sender: nil)
             }
         }
     }

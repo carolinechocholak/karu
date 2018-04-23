@@ -1266,6 +1266,7 @@ Hours</string>
                     </view>
                     <connections>
                         <outlet property="codeTF" destination="Pi3-RN-P9b" id="od2-eY-jro"/>
+                        <segue destination="8Qi-V3-drg" kind="custom" identifier="JoinedTeamSegue" customClass="IntroSegue" customModule="Karu" customModuleProvider="target" id="FUk-SY-fh8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydE-fd-xVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1297,9 +1298,7 @@ Hours</string>
         <image name="yuvo logo copy" width="134" height="154"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Duo-yI-EED"/>
-        <segue reference="XOO-L6-B5f"/>
-        <segue reference="lW1-Vf-aCq"/>
+        <segue reference="FUk-SY-fh8"/>
         <segue reference="BzX-wo-Myx"/>
     </inferredMetricsTieBreakers>
 </document>
