@@ -1475,11 +1475,8 @@ Hours</string>
         <image name="yuvo logo copy" width="134" height="154"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
         <segue reference="FUk-SY-fh8"/>
-=======
         <segue reference="vwO-KT-bRW"/>
->>>>>>> 844f7a43f69c55dda26712bdb95876a806758e34
         <segue reference="BzX-wo-Myx"/>
     </inferredMetricsTieBreakers>
 </document>
