@@ -16,6 +16,7 @@ class TeamPageViewController: UIViewController {
     @IBOutlet weak var IntroTextView: UITextView!
     @IBOutlet weak var IntroLabel: UILabel!
     @IBOutlet weak var buttonStackView: UIStackView!
+    @IBOutlet weak var buttonsView: UIView!
     
     @IBOutlet weak var teamButton: UIButton!
     @IBOutlet weak var profilePic: UIImageView!
@@ -23,14 +24,30 @@ class TeamPageViewController: UIViewController {
     @IBOutlet weak var dataStackView: UIStackView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var teamCountLabel: UILabel!
+    var newUser: Bool?
+    var currY: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         let user = Auth.auth().currentUser
         let displayName = user?.displayName
         
         nameLabel.text = displayName
-        
+       
         getTeamCount()
+        if newUser != nil { // display new message
+            self.IntroLabel.isHidden = false
+            self.IntroTextView.isHidden = false
+            self.buttonsView.isHidden = true
+        } else { // don't display, print out buttons for teams
+            self.IntroLabel.isHidden = true
+            self.IntroTextView.isHidden = true
+            self.buttonsView.isHidden = false
+            // create buttons here
+            buttonsView.addSubview((makeButtonWithText(text: "Lavalab")))
+            buttonsView.addSubview((makeButtonWithText(text: "USC Field Hockey")))
+            
+        }
+        newUser = false
         
         
 
@@ -58,34 +75,49 @@ class TeamPageViewController: UIViewController {
     
     @IBAction func groupButtonTouched(_ sender: UIButton) {
         
-        
+        self.performSegue(withIdentifier: "groupToOrgSegue", sender: self)
        
-        self.animateButton()
+        //self.animateButton()
         
        
     }
-    func animateButton() {
-    UIView.animate(withDuration: 0.5, animations: {
-        
     
-    self.buttonStackView.frame.origin.y -= 49
-    self.buttonStackView.frame.origin.x += 5
-    self.dataStackView.frame.origin.y -= 49
-    self.dataStackView.frame.origin.x += 5
-    self.nameStackView.frame.origin.y -= 41
-    self.nameStackView.frame.origin.x += 5
-    self.profilePic.frame.origin.y -= 21
-    self.profilePic.frame.origin.x += 15
-    self.profilePic.frame.size.width -= 20
-    self.profilePic.frame.size.height -= 20
-     /*   let newImage = UIImage(named: "Organization Button Pressed")
-        let otherImage = UIImage(named: "Team Button 3")
-        self.groupButton.setImage(newImage, for: UIControlState.normal)
-        self.teamButton.setImage(otherImage, for: UIControlState.normal) */
+    
+    func makeButtonWithText(text:String) -> UIButton {
+        let myButton = UIButton(type: UIButtonType.system)
+        //Set a frame for the button. Ignored in AutoLayout/ Stack Views
+        myButton.frame = CGRect(x: 18, y: currY, width: 200, height: 50)
+        
+        let buttonBackground = UIImage(named: "Team Name 2")
+        
+        myButton.layer.cornerRadius = 5
+        //Set background color
+       //myButton.backgroundColor = UIColor.lightGray
+        myButton.setBackgroundImage(buttonBackground, for: UIControlState.normal)
+        
+      
+        myButton.titleLabel?.textAlignment = NSTextAlignment.center
+        myButton.setTitle(text, for: UIControlState.normal)
+        myButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+       
+        
+        myButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+        myButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        myButton.layer.shadowOpacity = 0.3
+        
+        
+        //myButton.titleEdgeInsets = UIEdgeInsetsMake(100, 10, 0, 0)
      
-    }) {finished in
-    self.timeToMoveOn()
+        
+        myButton.addTarget(self,
+                           action: #selector(helloButton),
+                           for: .touchUpInside
+        )
+        currY += 58
+        return myButton
     }
+    @IBAction func helloButton(sender:UIButton){
+        self.performSegue(withIdentifier: "toEventPageSegue", sender: self)
     }
     
     @objc func timeToMoveOn() {

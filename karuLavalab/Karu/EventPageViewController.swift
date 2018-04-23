@@ -42,6 +42,7 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
         //myButton = button
                     // change tag property
        // self.view.addSubview(myButton) // add to view as subview
+<<<<<<< HEAD
         self.buttonScroll.addSubview(button)
         if(Auth.auth().currentUser == nil) {
             DispatchQueue.main.sync {
@@ -51,6 +52,10 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
         
         getEvents()
         getTeams()
+=======
+        //self.buttonScroll.addSubview(button)
+      
+>>>>>>> 0225617b4e3a56653c32c95767a53e5cf2f124d0
 
         // Do any additional setup after loading the view.
     }
