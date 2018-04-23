@@ -58,9 +58,9 @@ class TeamPageViewController: UIViewController {
     
     @IBAction func groupButtonTouched(_ sender: UIButton) {
         
-        
+        self.performSegue(withIdentifier: "groupToOrgSegue", sender: self)
        
-        self.animateButton()
+        //self.animateButton()
         
        
     }
