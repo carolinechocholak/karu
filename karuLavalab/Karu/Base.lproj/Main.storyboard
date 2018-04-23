@@ -428,7 +428,10 @@ YUVO</string>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dZQ-A3-jUt"/>
                                 </constraints>
-                                <state key="normal" image="MenuBar"/>
+                                <state key="normal" image="Left"/>
+                                <connections>
+                                    <segue destination="8Qi-V3-drg" kind="custom" identifier="backToTeamsSegue" customClass="LeftSwipeSegue" customModule="Karu" customModuleProvider="target" id="MVS-Cc-LxJ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YUVO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsj-pm-NRd">
                                 <rect key="frame" x="156" y="24" width="63" height="39"/>
@@ -439,13 +442,6 @@ YUVO</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jo5-1R-0hj">
-                                <rect key="frame" x="330" y="29" width="29" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="XxN-V9-j2c"/>
-                                </constraints>
-                                <state key="normal" image="UserImage"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -460,12 +456,8 @@ YUVO</string>
                             <constraint firstItem="vTn-3S-25G" firstAttribute="top" secondItem="IQy-Rc-zXV" secondAttribute="top" constant="81" id="GBy-hx-TtA"/>
                             <constraint firstItem="H3m-S6-SaE" firstAttribute="top" secondItem="jeM-ZW-IHG" secondAttribute="top" constant="8" id="Glh-rY-4oy"/>
                             <constraint firstItem="H3m-S6-SaE" firstAttribute="leading" secondItem="jeM-ZW-IHG" secondAttribute="leading" constant="16" id="M5j-BH-DbK"/>
-                            <constraint firstItem="jeM-ZW-IHG" firstAttribute="trailing" secondItem="Jo5-1R-0hj" secondAttribute="trailing" constant="16" id="MIb-ga-eX5"/>
-                            <constraint firstItem="Jo5-1R-0hj" firstAttribute="top" secondItem="jeM-ZW-IHG" secondAttribute="top" constant="9" id="QLl-2q-WcH"/>
-                            <constraint firstItem="Jo5-1R-0hj" firstAttribute="leading" secondItem="nsj-pm-NRd" secondAttribute="trailing" constant="111" id="RTl-sg-0Od"/>
                             <constraint firstItem="UiG-Qk-HBq" firstAttribute="trailing" secondItem="vTn-3S-25G" secondAttribute="trailing" id="Sib-QH-vtr"/>
-                            <constraint firstItem="vTn-3S-25G" firstAttribute="top" secondItem="Jo5-1R-0hj" secondAttribute="bottom" constant="23" id="T3y-iK-bBw"/>
-                            <constraint firstItem="Jo5-1R-0hj" firstAttribute="leading" secondItem="nsj-pm-NRd" secondAttribute="trailing" constant="111" id="iRb-zU-bvM"/>
+                            <constraint firstItem="jeM-ZW-IHG" firstAttribute="trailing" secondItem="nsj-pm-NRd" secondAttribute="trailing" constant="156" id="XL1-wv-ZOM"/>
                             <constraint firstItem="mzC-qj-fjN" firstAttribute="top" secondItem="vTn-3S-25G" secondAttribute="bottom" constant="19" id="jTp-6K-FT4"/>
                             <constraint firstItem="UiG-Qk-HBq" firstAttribute="leading" secondItem="jeM-ZW-IHG" secondAttribute="leading" id="ldw-W5-fDn"/>
                             <constraint firstItem="vTn-3S-25G" firstAttribute="top" secondItem="H3m-S6-SaE" secondAttribute="bottom" constant="23" id="mCP-hM-Ajc"/>
@@ -509,13 +501,6 @@ YUVO</string>
                                 <connections>
                                     <segue destination="vJE-hm-nSB" kind="custom" identifier="backToEventScroll" customClass="LeftSwipeSegue" customModule="Karu" customModuleProvider="target" id="XOO-L6-B5f"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Das-hA-an4">
-                                <rect key="frame" x="330" y="40" width="29" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="j5A-T7-hfG"/>
-                                </constraints>
-                                <state key="normal" image="UserImage"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWz-th-6NH">
                                 <rect key="frame" x="0.0" y="226" width="375" height="441"/>
@@ -731,25 +716,21 @@ YUVO</string>
                         <constraints>
                             <constraint firstItem="orL-ml-0bX" firstAttribute="top" secondItem="btq-M6-OCM" secondAttribute="bottom" constant="8" id="0lD-Jh-I9i"/>
                             <constraint firstItem="FWz-th-6NH" firstAttribute="trailing" secondItem="JvX-Of-GVx" secondAttribute="trailing" id="4Ni-Fz-0rk"/>
-                            <constraint firstItem="btq-M6-OCM" firstAttribute="top" secondItem="Das-hA-an4" secondAttribute="bottom" constant="20" id="4zz-nk-eIC"/>
                             <constraint firstItem="FWz-th-6NH" firstAttribute="top" secondItem="fUj-Cr-9U1" secondAttribute="bottom" constant="28" id="8rW-Mh-zRu"/>
                             <constraint firstItem="FWz-th-6NH" firstAttribute="top" secondItem="orL-ml-0bX" secondAttribute="bottom" constant="28" id="Ahq-wB-MdN"/>
+                            <constraint firstItem="JvX-Of-GVx" firstAttribute="trailing" secondItem="QXj-ts-J20" secondAttribute="trailing" constant="156" id="Azz-Jq-p1U"/>
                             <constraint firstItem="QXj-ts-J20" firstAttribute="leading" secondItem="yCj-Lb-TQq" secondAttribute="trailing" constant="112" id="CJU-kw-eiS"/>
                             <constraint firstItem="yCj-Lb-TQq" firstAttribute="top" secondItem="JvX-Of-GVx" secondAttribute="top" constant="19" id="KNg-6B-hQ4"/>
                             <constraint firstItem="JvX-Of-GVx" firstAttribute="trailing" secondItem="orL-ml-0bX" secondAttribute="trailing" constant="130" id="L0o-hE-G3F"/>
-                            <constraint firstItem="JvX-Of-GVx" firstAttribute="trailing" secondItem="Das-hA-an4" secondAttribute="trailing" constant="16" id="Oh4-fO-Kcw"/>
                             <constraint firstItem="GfH-yA-qPt" firstAttribute="top" secondItem="btq-M6-OCM" secondAttribute="bottom" constant="8" id="SXU-Sz-nfw"/>
                             <constraint firstItem="JvX-Of-GVx" firstAttribute="trailing" secondItem="btq-M6-OCM" secondAttribute="trailing" constant="6" id="Use-i3-yhx"/>
                             <constraint firstItem="fUj-Cr-9U1" firstAttribute="leading" secondItem="orL-ml-0bX" secondAttribute="trailing" constant="25" id="XYQ-YK-YTC"/>
                             <constraint firstItem="fUj-Cr-9U1" firstAttribute="top" secondItem="btq-M6-OCM" secondAttribute="bottom" constant="8" id="a3m-lE-LjI"/>
-                            <constraint firstItem="Das-hA-an4" firstAttribute="leading" secondItem="QXj-ts-J20" secondAttribute="trailing" constant="111" id="en7-LG-aI1"/>
                             <constraint firstItem="fUj-Cr-9U1" firstAttribute="leading" secondItem="GfH-yA-qPt" secondAttribute="trailing" constant="25" id="f6T-Xt-IuL"/>
-                            <constraint firstItem="Das-hA-an4" firstAttribute="top" secondItem="JvX-Of-GVx" secondAttribute="top" constant="20" id="g2e-6d-cej"/>
                             <constraint firstItem="JvX-Of-GVx" firstAttribute="trailing" secondItem="fUj-Cr-9U1" secondAttribute="trailing" constant="16" id="gk0-Xg-y22"/>
                             <constraint firstItem="orL-ml-0bX" firstAttribute="leading" secondItem="sMg-pB-PR9" secondAttribute="trailing" constant="42" id="gp1-ma-FLs"/>
                             <constraint firstItem="FWz-th-6NH" firstAttribute="leading" secondItem="JvX-Of-GVx" secondAttribute="leading" id="kiJ-F2-9pR"/>
                             <constraint firstItem="sMg-pB-PR9" firstAttribute="top" secondItem="yCj-Lb-TQq" secondAttribute="bottom" constant="31" id="l5u-Q4-4Cz"/>
-                            <constraint firstItem="Das-hA-an4" firstAttribute="leading" secondItem="QXj-ts-J20" secondAttribute="trailing" constant="111" id="neJ-4t-R61"/>
                             <constraint firstItem="GfH-yA-qPt" firstAttribute="leading" secondItem="sMg-pB-PR9" secondAttribute="trailing" constant="42" id="oCb-fI-Pmi"/>
                             <constraint firstItem="FWz-th-6NH" firstAttribute="top" secondItem="sMg-pB-PR9" secondAttribute="bottom" constant="28" id="rRi-uw-PTo"/>
                             <constraint firstItem="FWz-th-6NH" firstAttribute="bottom" secondItem="JvX-Of-GVx" secondAttribute="bottom" id="sD5-0i-b5d"/>
@@ -935,18 +916,28 @@ Enter your new team’s name and then hit the plus! </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qJz-Md-4Ce">
+                                <rect key="frame" x="68" y="238" width="240" height="363"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="363" id="lzd-Vo-6ZW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qMO-J2-91d" firstAttribute="trailing" secondItem="3j3-kp-ADg" secondAttribute="trailing" constant="85" id="1Fw-kU-Jr1"/>
                             <constraint firstItem="LZQ-Cf-5No" firstAttribute="top" secondItem="buF-Tm-rOb" secondAttribute="top" id="1aw-wP-RwU"/>
                             <constraint firstItem="Eg8-v9-VUi" firstAttribute="top" secondItem="17w-88-3pt" secondAttribute="bottom" constant="8" id="7vx-ej-tb8"/>
+                            <constraint firstItem="09D-1R-flC" firstAttribute="top" secondItem="qJz-Md-4Ce" secondAttribute="bottom" constant="8" id="9Wr-j0-2v1"/>
+                            <constraint firstItem="qJz-Md-4Ce" firstAttribute="leading" secondItem="qMO-J2-91d" secondAttribute="leading" constant="68" id="Elq-Yi-JaC"/>
+                            <constraint firstItem="qJz-Md-4Ce" firstAttribute="top" secondItem="M37-X4-VdI" secondAttribute="bottom" constant="10" id="Fys-3r-9Oi"/>
                             <constraint firstItem="qMO-J2-91d" firstAttribute="trailing" secondItem="17w-88-3pt" secondAttribute="trailing" constant="152" id="Gol-f2-ET5"/>
                             <constraint firstItem="17w-88-3pt" firstAttribute="top" secondItem="qMO-J2-91d" secondAttribute="top" id="Ijb-ps-lmZ"/>
                             <constraint firstItem="3j3-kp-ADg" firstAttribute="top" secondItem="M37-X4-VdI" secondAttribute="bottom" constant="10" id="OI4-8b-piF"/>
                             <constraint firstItem="17w-88-3pt" firstAttribute="leading" secondItem="qMO-J2-91d" secondAttribute="leading" constant="153" id="QP9-79-hhs"/>
                             <constraint firstItem="qMO-J2-91d" firstAttribute="trailing" secondItem="rJ3-Yt-HtX" secondAttribute="trailing" constant="124" id="Qpb-5V-LWQ"/>
                             <constraint firstItem="LZQ-Cf-5No" firstAttribute="bottom" secondItem="qMO-J2-91d" secondAttribute="bottom" id="RTa-Tg-RZH"/>
+                            <constraint firstItem="qMO-J2-91d" firstAttribute="trailing" secondItem="qJz-Md-4Ce" secondAttribute="trailing" constant="67" id="SBM-kF-4T7"/>
                             <constraint firstItem="qMO-J2-91d" firstAttribute="trailing" secondItem="iZi-G2-lvG" secondAttribute="trailing" constant="42" id="SjC-JS-Fjs"/>
                             <constraint firstItem="iZi-G2-lvG" firstAttribute="top" secondItem="M37-X4-VdI" secondAttribute="bottom" constant="10" id="TD8-Vi-E8Z"/>
                             <constraint firstItem="qMO-J2-91d" firstAttribute="bottom" secondItem="09D-1R-flC" secondAttribute="bottom" constant="20" id="UIs-K6-VLn"/>
@@ -971,6 +962,7 @@ Enter your new team’s name and then hit the plus! </string>
                         <outlet property="IntroLabel" destination="iZi-G2-lvG" id="rvO-H2-dt5"/>
                         <outlet property="IntroTextView" destination="3j3-kp-ADg" id="fwR-yy-etX"/>
                         <outlet property="buttonStackView" destination="M37-X4-VdI" id="zJ5-OL-WCc"/>
+                        <outlet property="buttonsView" destination="qJz-Md-4Ce" id="SDH-nh-vbV"/>
                         <outlet property="dataStackView" destination="rJ3-Yt-HtX" id="Ka0-DJ-dD0"/>
                         <outlet property="groupButton" destination="p29-I3-7VT" id="OTG-2M-khf"/>
                         <outlet property="nameLabel" destination="Mh7-Dt-s03" id="erO-0C-e9o"/>
@@ -979,6 +971,7 @@ Enter your new team’s name and then hit the plus! </string>
                         <outlet property="teamButton" destination="dDy-TN-Aug" id="hIK-5A-izz"/>
                         <outlet property="teamCountLabel" destination="7Yk-sk-gRl" id="A9O-O6-GTv"/>
                         <segue destination="qv2-oc-ZGe" kind="show" identifier="groupToOrgSegue" animates="NO" id="dLC-Aa-GgO"/>
+                        <segue destination="vJE-hm-nSB" kind="custom" identifier="toEventPageSegue" customClass="IntroSegue" customModule="Karu" customModuleProvider="target" id="aLB-i1-bkV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYa-uB-Own" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1128,7 +1121,7 @@ Hours</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdG-yJ-Rjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Mix-IF-2Mg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2423" y="122"/>
+            <point key="canvasLocation" x="2421.5999999999999" y="121.88905547226388"/>
         </scene>
         <!--GroupViewController-->
         <scene sceneID="qXz-IA-69V">
@@ -1608,7 +1601,6 @@ Hours</string>
         <image name="Left" width="25" height="25"/>
         <image name="Log Button" width="43" height="43"/>
         <image name="Log Button Pressed" width="35" height="35"/>
-        <image name="MenuBar" width="28" height="22"/>
         <image name="OrgVolunteerButtons" width="138" height="52"/>
         <image name="Organization Button" width="43" height="43"/>
         <image name="Organization Button Pressed" width="35" height="35"/>
@@ -1627,9 +1619,10 @@ Hours</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="XX5-dU-qcE"/>
-        <segue reference="6wl-yM-o3C"/>
-        <segue reference="vL5-qR-v2B"/>
-        <segue reference="IJ5-lf-QkY"/>
+        <segue reference="1nM-bT-2ES"/>
+        <segue reference="dLC-Aa-GgO"/>
+        <segue reference="MVS-Cc-LxJ"/>
+        <segue reference="XOO-L6-B5f"/>
         <segue reference="BzX-wo-Myx"/>
     </inferredMetricsTieBreakers>
 </document>

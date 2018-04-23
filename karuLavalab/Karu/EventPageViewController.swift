@@ -39,7 +39,7 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
         //myButton = button
                     // change tag property
        // self.view.addSubview(myButton) // add to view as subview
-        self.buttonScroll.addSubview(button)
+        //self.buttonScroll.addSubview(button)
       
 
         // Do any additional setup after loading the view.
