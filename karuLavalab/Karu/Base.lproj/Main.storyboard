@@ -1280,10 +1280,10 @@ Hours</string>
             </objects>
             <point key="canvasLocation" x="1685.5999999999999" y="888.30584707646187"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Team View Controller-->
         <scene sceneID="4Ar-8f-OTw">
             <objects>
-                <viewController id="aaC-E8-eEy" sceneMemberID="viewController">
+                <viewController id="aaC-E8-eEy" customClass="CreateTeamViewController" customModule="Karu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="USb-w2-CQz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1445,6 +1445,12 @@ Hours</string>
                         <viewLayoutGuide key="safeArea" id="3QL-se-x73"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="teamCityField" destination="69u-ih-QqI" id="GhN-hB-5pT"/>
+                        <outlet property="teamMissionField" destination="esB-5I-585" id="4y6-dk-y3Z"/>
+                        <outlet property="teamNameField" destination="Ihu-Cm-9yW" id="pMr-L2-uf5"/>
+                        <outlet property="teamSchoolField" destination="DVP-oj-fGZ" id="0Xg-kD-M23"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtE-fo-dWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1475,7 +1481,7 @@ Hours</string>
         <image name="yuvo logo copy" width="134" height="154"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FUk-SY-fh8"/>
+        <segue reference="XOO-L6-B5f"/>
         <segue reference="vwO-KT-bRW"/>
         <segue reference="BzX-wo-Myx"/>
     </inferredMetricsTieBreakers>
