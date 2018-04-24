@@ -19,8 +19,9 @@ class CollectionViewCell: UICollectionViewCell {
                 self.backgroundColor = UIColor.white
                 self.orgName.textColor = UIColor.black
                 self.orgName.alpha = 1
-                self.orgName.backgroundColor = UIColor(displayP3Red: 0, green: 187, blue: 224, alpha: 1)
-                self.alpha = 0.4
+                self.orgName.backgroundColor = UIColor(displayP3Red: 0/255.0, green: 187.0/255.0, blue: 100/255.0, alpha: 1.0)
+                self.alpha = 1.0
+                
                 
                 
             }

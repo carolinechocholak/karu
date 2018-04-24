@@ -51,19 +51,22 @@ class eventDetailsViewController: UIViewController {
         self.updateButton.setTitleColor(updateColor, for: UIControlState.normal)
         self.updateButton.layer.borderColor = updateColor.cgColor
         self.updateButton.layer.borderWidth = 1.5
-        self.updateButton.layer.cornerRadius = 2.0
+        self.updateButton.layer.cornerRadius = 5.0
+        self.updateButton.layer.masksToBounds = true
         
         let goingColor = UIColor(displayP3Red: 82.0/255.0, green: 196.0/255.0, blue: 69.0/255.0, alpha: 1.0)
         self.GoingButton.setTitleColor(goingColor, for: UIControlState.normal)
         self.GoingButton.layer.borderColor = goingColor.cgColor
         self.GoingButton.layer.borderWidth = 1.5
-        self.GoingButton.layer.cornerRadius = 2.0
+        self.GoingButton.layer.cornerRadius = 5.0
+        self.GoingButton.layer.masksToBounds = true
         
         let notGoingColor = UIColor(displayP3Red: 208.0/255.0, green: 2.0/255.0, blue: 27.0/255.0, alpha: 1.0)
         self.NotGoingButton.setTitleColor(notGoingColor, for: UIControlState.normal)
         self.NotGoingButton.layer.borderColor = notGoingColor.cgColor
         self.NotGoingButton.layer.borderWidth = 1.5
-        self.NotGoingButton.layer.cornerRadius = 2.0
+        self.NotGoingButton.layer.cornerRadius = 5.0
+        self.NotGoingButton.layer.masksToBounds = true
         
         
        

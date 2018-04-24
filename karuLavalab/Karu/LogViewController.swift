@@ -3,17 +3,25 @@
 //  Karu
 //
 //  Created by John Zeiders on 4/23/18.
+//  Created by Caroline Chocholak on 4/23/18.
 //  Copyright © 2018 Caroline Chocholak. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class LogViewController: UIViewController {
+class LogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var teamCountLabel: UILabel!
+    var items: [String] = ["Lavalab", "USC Field Hockey",
+                                   "Mureality"]
+    var itemHours: [String: String] = ["Lavalab": "8/10 Hours", "USC Field Hockey": "4/5 Hours",
+        "Mureality": "2/8 Hours"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +31,6 @@ class LogViewController: UIViewController {
         getTeamInfo()
         
         nameLabel.text = displayName
-        
         
         
         // Do any additional setup after loading the view.
@@ -49,6 +56,39 @@ class LogViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Table view data source
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return items.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        // Configure the cell...
+        
+        cell.textLabel?.text = items[indexPath.row]
+        cell.textLabel?.textColor = UIColor.white
+        cell.detailTextLabel?.text = itemHours[items[indexPath.row]]
+        cell.detailTextLabel?.textColor = UIColor.white
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 1.5
+        cell.layer.cornerRadius = 5.0
+        
+        return cell
+    }
+
+   
+    
+    
     
 
     /*

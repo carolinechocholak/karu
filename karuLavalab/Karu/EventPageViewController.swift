@@ -43,11 +43,16 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
         //myButton = button
                     // change tag property
        // self.view.addSubview(myButton) // add to view as subview
- 
+
+        if(Auth.auth().currentUser == nil) {
+            DispatchQueue.main.sync {
+                Auth.auth().signIn(withEmail: "hello@gmail.com", password: "testtest")
+            }
+        }
         
         getEvents()
         getTeams()
-      
+
 
         // Do any additional setup after loading the view.
     }
@@ -127,21 +132,31 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionViewCell
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.orgName.text = self.teamCollection[indexPath.item].name
-       
-        //cell.orgName.backgroundColor = UIColor.clear
-        
-        cell.backgroundColor = UIColor.white
-        cell.alpha = 0.4
-        cell.orgName.backgroundColor = UIColor.clear
-        cell.orgName.alpha = 1
-        cell.orgName.textColor = UIColor.black
-        
-        
-        
-        
-        
-        
+
+        cell.orgName.text = self.teamCollection.items[indexPath.item].name
+        cell.orgName.highlightedTextColor = UIColor.white
+        if indexPath.item == 0 {
+            cell.layer.cornerRadius = 5.0
+            cell.layer.masksToBounds = true
+            cell.backgroundColor = UIColor.white
+            cell.orgName.textColor = UIColor.white
+            cell.orgName.alpha = 1
+            cell.orgName.backgroundColor = UIColor(displayP3Red: 0/255.0, green: 187.0/255.0, blue: 100/255.0, alpha: 1.0)
+            cell.alpha = 1.0
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+        }
+        else {
+            cell.backgroundColor = UIColor.white
+            cell.alpha = 0.4
+            cell.orgName.backgroundColor = UIColor.clear
+            cell.orgName.alpha = 1
+            cell.orgName.textColor = UIColor.black
+            cell.layer.cornerRadius = 5.0
+            cell.layer.masksToBounds = true
+            
+        }
+        cell.orgName.isUserInteractionEnabled = true
+
         return cell
       
       
@@ -152,10 +167,24 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         selectedIndex = indexPath.row
-        getEvents()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionViewCell
+        
+        cell.orgName.text = self.teamCollection.items[indexPath.item].name
+        cell.orgName.text =  "HELLO!"
+        cell.reloadInputViews()
+
         
         
        
+    }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionViewCell
+        cell.backgroundColor = UIColor.white
+        cell.alpha = 0.4
+        cell.orgName.backgroundColor = UIColor.clear
+        cell.orgName.alpha = 1
+        cell.orgName.textColor = UIColor.black
+        
     }
 
 }
