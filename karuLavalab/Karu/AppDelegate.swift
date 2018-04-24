@@ -17,6 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        
+        //For debugging
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //Sets Initial Controller
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "EventPageViewController")
+        self.window?.rootViewController = initialViewController
+        
+        //Auto Login
+        if(Auth.auth().currentUser == nil) {
+            DispatchQueue.main.sync {
+                Auth.auth().signIn(withEmail: "hello@gmail.com", password: "testtest")
+            }
+        }
+        
         // Override point for customization after application launch.
         return true
     }

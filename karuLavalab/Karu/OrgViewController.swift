@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class OrgViewController: UIViewController {
 
@@ -18,13 +19,41 @@ class OrgViewController: UIViewController {
     
     @IBOutlet weak var profilePic: UIImageView!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    
+    @IBOutlet weak var teamCountLabel: UILabel!
+    
+    
     @IBOutlet weak var nameStackView: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        let user = Auth.auth().currentUser
+        let displayName = user?.displayName
+        
+        getTeamInfo()
+        
+        nameLabel.text = displayName
+        
         
 
         // Do any additional setup after loading the view.
+    }
+    fileprivate func getTeamInfo() {
+        let user = Auth.auth().currentUser
+        let uid = user!.uid
+        let teamsRef = Firestore.firestore().collection("Teams")
+        let query = teamsRef.whereField("users.\(uid)", isEqualTo: true)
+        query.getDocuments {(querysnapshot, err) in
+            if let err = err {
+                print("Error getting docs: \(err)")
+            } else {
+                self.setTeamCount(querySnapshot: querysnapshot!)
+            }
+        }
+    }
+    func setTeamCount(querySnapshot: QuerySnapshot) {
+        self.teamCountLabel.text = (String(querySnapshot.count) + "\n Teams")
     }
 
     
