@@ -1696,8 +1696,8 @@ Hours</string>
                                 <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Team Members" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tdA-Ly-zYh">
-                                <rect key="frame" x="16" y="189" width="169" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Team Members" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tdA-Ly-zYh">
+                                <rect key="frame" x="16" y="189" width="208" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="lfh-ci-W2c"/>
                                 </constraints>
@@ -1705,8 +1705,8 @@ Hours</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours Completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbT-tw-1HT">
-                                <rect key="frame" x="230" y="189" width="120.5" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hours Completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbT-tw-1HT">
+                                <rect key="frame" x="269" y="189" width="120.66666666666669" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="D6H-6k-T2e"/>
                                 </constraints>
@@ -2007,8 +2007,8 @@ Hours</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6wl-yM-o3C"/>
-        <segue reference="dLC-Aa-GgO"/>
-        <segue reference="2hP-Md-mJS"/>
+        <segue reference="vL5-qR-v2B"/>
+        <segue reference="ftT-wB-zoF"/>
         <segue reference="aLB-i1-bkV"/>
         <segue reference="BzX-wo-Myx"/>
     </inferredMetricsTieBreakers>
