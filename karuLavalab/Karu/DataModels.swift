@@ -57,21 +57,33 @@ extension Event : DocumentSerializable {
 }
 
 struct Team {
-    var name: String;
+    var name: String
+    var city: String
+    var code: String
+    var mission: String
     var dictionary: [String : Any] {
         return [
-            "name" : name
+            "name" : name,
+            "city" : city,
+            "code" : code,
+            "mission" : mission
         ]
     }
 }
 
 extension Team : DocumentSerializable {
     init?(dictionary : [String : Any]) {
-        guard let name = dictionary["name"] as? String
+        guard let name = dictionary["name"] as? String,
+            let city = dictionary["city"] as? String,
+            let code = dictionary["code"] as? String,
+            let mission = dictionary["mission"] as? String
             else {return nil}
 
         self.init(
-            name: name
+            name: name,
+            city: city,
+            code: code,
+            mission: mission
         )
     }
 }

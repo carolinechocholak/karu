@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 
 
 class EventPageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -16,6 +16,9 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
     
     
     var currY: Int = 0
+    private var eventCollection: LocalCollection<Event>!
+    private var teamCollection: LocalCollection<Team>!
+
     @IBOutlet weak var eventButtonView: UIView!
     
     @IBOutlet weak var buttonScroll: UIScrollView!
@@ -24,7 +27,7 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
     
-       eventScrollView.backgroundColor = UIColor.clear
+        eventScrollView.backgroundColor = UIColor.clear
         eventScrollView.allowsMultipleSelection = false
         
         let button = UIButton(type: UIButtonType.system) as UIButton
@@ -33,16 +36,51 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
         button.titleLabel?.text = "Hello"
        
         currY = 0
-         eventButtonView.addSubview(makeButtonWithText(text: "Swim with Mike"))
+        eventButtonView.addSubview(makeButtonWithText(text: "Swim with Mike"))
         eventButtonView.addSubview(makeButtonWithText(text: "Test"))
         eventButtonView.addSubview(makeButtonWithText(text: "Another"))
         //myButton = button
                     // change tag property
        // self.view.addSubview(myButton) // add to view as subview
-        //self.buttonScroll.addSubview(button)
-      
+
+        self.buttonScroll.addSubview(button)
+        if(Auth.auth().currentUser == nil) {
+            DispatchQueue.main.sync {
+                Auth.auth().signIn(withEmail: "hello@gmail.com", password: "testtest")
+            }
+        }
+        
+        getEvents()
+        getTeams()
+
 
         // Do any additional setup after loading the view.
+    }
+    func getTeams() {
+        if let u = Auth.auth().currentUser {
+            let uid = u.uid
+            let teamsRef = Firestore.firestore().collection("Teams")
+            let query = teamsRef.whereField("users.\(uid)", isEqualTo: true)
+            teamCollection = LocalCollection(query: query) {(changes) in
+                
+                print("Recieved Team Update")
+            }
+            teamCollection.listen()
+        }
+        
+    }
+    func getEvents() {
+        if(teamCollection == nil) {
+            return
+        }
+        let team =  teamCollection.documents[selectedIndex]
+        let teamId = team.documentID
+        let eventsRef = Firestore.firestore().collection("Events")
+        let query = eventsRef.whereField("teamID", isEqualTo: teamId)
+        eventCollection = LocalCollection(query: query) { (changes) in
+            print("Received Update")
+        }
+        eventCollection.listen()
     }
 
     func makeButtonWithText(text:String) -> UIButton {
@@ -106,15 +144,22 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBAction func helloButton(sender:UIButton){
         self.performSegue(withIdentifier: "toEventSegue", sender: self)
     }
-    var items = ["Swim With Mike", "Lavalab", "USC Field Hockey", "SC Hackers", "Relay for Life"]
+    deinit {
+        eventCollection.stopListening()
+        teamCollection.stopListening()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNeedsStatusBarAppearanceUpdate()
+    }
     
-
     
     // MARK: - UICollectionViewDataSource protocol
     
     // tell the collection view how many cells to make
+    // The collection is the scroll bar
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.items.count
+        return self.teamCollection.count
     }
     
     // make a cell for each cell index path
@@ -125,7 +170,8 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionViewCell
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.orgName.text = self.items[indexPath.item]
+
+        cell.orgName.text = self.teamCollection.items[indexPath.item].name
         cell.orgName.highlightedTextColor = UIColor.white
         if indexPath.item == 0 {
             cell.layer.cornerRadius = 5.0
@@ -148,6 +194,7 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
             
         }
         cell.orgName.isUserInteractionEnabled = true
+
         return cell
       
       
@@ -158,11 +205,13 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         selectedIndex = indexPath.row
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionViewCell
-        print (self.items[indexPath.item])
-//        cell.orgName.text = self.items[indexPath.item]
+        
+        cell.orgName.text = self.teamCollection.items[indexPath.item].name
         cell.orgName.text =  "HELLO!"
         cell.reloadInputViews()
+
         
         
        
