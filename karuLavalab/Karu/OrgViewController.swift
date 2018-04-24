@@ -12,7 +12,8 @@ import Firebase
 class OrgViewController: UIViewController {
 
     
-   
+    @IBOutlet weak var backgroundPic: UILabel!
+    
     @IBOutlet weak var dataStackView: UIStackView!
     
     @IBOutlet weak var buttonStackView: UIStackView!
@@ -21,19 +22,42 @@ class OrgViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var charityData: UITextView!
     
     @IBOutlet weak var teamCountLabel: UILabel!
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var button2: UIButton!
     
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var nameStackView: UIStackView!
+    
+    @IBOutlet weak var export1: UIButton!
+    
+    @IBOutlet weak var export2: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         let user = Auth.auth().currentUser
         let displayName = user?.displayName
-        
+        self.segmentedControl.layer.cornerRadius = 20.0
+        segmentedControl.tintColor = UIColor.white
         getTeamInfo()
+        self.charityData.isHidden = true
         
         nameLabel.text = displayName
+        self.backgroundPic.layer.cornerRadius = 5.0
+        self.button1.layer.cornerRadius = 5.0
+        self.button1.layer.borderColor = UIColor.white.cgColor
+        self.button1.layer.borderWidth = 1.0
+        
+        self.button2.layer.cornerRadius = 5.0
+        self.button2.layer.borderColor = UIColor.white.cgColor
+        self.button2.layer.borderWidth = 1.0
+        
+        self.button3.layer.cornerRadius = 5.0
+        self.button3.layer.borderColor = UIColor.white.cgColor
+        self.button3.layer.borderWidth = 1.0
         
         
 
@@ -58,38 +82,88 @@ class OrgViewController: UIViewController {
 
     
     
+    @IBAction func firstButtonPressed(_ sender: Any) {
+        if segmentedControl.selectedSegmentIndex == 0 {
+        if (self.charityData.isHidden){
+            self.charityData.frame.size.height = 0
+            self.charityData.isHidden = false
+            self.charityData.isHidden = false
+            UIView.animate(withDuration: 0.5, animations: {
+                self.button2.frame.origin.y += 115
+                self.button3.frame.origin.y += 115
+                self.charityData.frame.size.height += 105
+                self.export1.frame.origin.y += 115
+                self.export2.frame.origin.y += 115
+                })
+        }
+        else {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.button2.frame.origin.y -= 115
+                self.button3.frame.origin.y -= 115
+                self.charityData.frame.size.height -= 105
+                self.export1.frame.origin.y -= 115
+                self.export2.frame.origin.y -= 115
+                
+            }, completion: { finished in
+                self.charityData.isHidden = true
+            })
+        }
+        }
+        
+    }
+    
+    @IBAction func segmentChanged(_ sender: Any) {
+        if segmentedControl.selectedSegmentIndex == 0 {
+            self.button1.setTitle("Swim With Mike", for: UIControlState.normal)
+            self.button2.setTitle("Relay For Life", for: UIControlState.normal)
+            self.button3.setTitle("Cycle For Survival", for: UIControlState.normal)
+        }
+        else {
+            self.button1.setTitle("Midnight Mission", for: UIControlState.normal)
+            self.button2.setTitle("Once Voice", for: UIControlState.normal)
+            self.button3.setTitle("Heal the Bay", for: UIControlState.normal)
+        }
+    }
+    
+    
     @IBAction func groupButtonTouched(_ sender: Any) {
          self.performSegue(withIdentifier: "orgToGroupSegue", sender: self)
         //self.animateButton()
     }
     
-    func animateButton() {
-        UIView.animate(withDuration: 0.5, animations: {
-            
-            
-            self.buttonStackView.frame.origin.y += 49
-            self.buttonStackView.frame.origin.x -= 5
-            self.dataStackView.frame.origin.y += 49
-            self.dataStackView.frame.origin.x -= 5
-            self.nameStackView.frame.origin.y += 41
-            self.nameStackView.frame.origin.x -= 5
-            self.profilePic.frame.origin.y += 21
-            self.profilePic.frame.origin.x -= 15
-            self.profilePic.frame.size.width += 20
-            self.profilePic.frame.size.height += 20
-            /*   let newImage = UIImage(named: "Organization Button Pressed")
-             let otherImage = UIImage(named: "Team Button 3")
-             self.groupButton.setImage(newImage, for: UIControlState.normal)
-             self.teamButton.setImage(otherImage, for: UIControlState.normal) */
-            
-        }) {finished in
-            self.timeToMoveOn()
+    @IBAction func share1(_ sender: Any) {
+        let alertController = UIAlertController(title: "Share this organization with:", message: "", preferredStyle: .alert)
+        let backView = alertController.view.subviews.last?.subviews.last
+        backView?.layer.cornerRadius = 10.0
+        backView?.backgroundColor = UIColor.white
+        let action1 = UIAlertAction(title: "Lavalab", style: .default) { (action:UIAlertAction) in
+            print("You've pressed default");
+           
         }
+        
+        
+        let action2 = UIAlertAction(title: "USC Field Hockey", style: .default) { (action:UIAlertAction) in
+            print("You've pressed the destructive");
+        }
+        let action3 = UIAlertAction(title: "Alpha Phi", style: .default) { (action:UIAlertAction) in
+            print("You've pressed the destructive");
+        }
+        alertController.addAction(action1)
+        alertController.addAction(action2)
+        alertController.addAction(action3)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
-    @objc func timeToMoveOn() {
-        self.performSegue(withIdentifier: "orgToGroupSegue", sender: self)
+   
+    @IBAction func share2(_ sender: Any) {
+        share1(self)
     }
+    
+    @IBAction func share3(_ sender: Any) {
+        share1(self)
+    }
+    
     
     /*
     // MARK: - Navigation

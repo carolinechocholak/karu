@@ -33,7 +33,7 @@ class TeamPageViewController: UIViewController {
         
         nameLabel.text = displayName
        
-        getTeamInfo()
+       // getTeamInfo()
         if newUser != nil { // display new message
             self.IntroLabel.isHidden = false
             self.IntroTextView.isHidden = false
@@ -43,8 +43,8 @@ class TeamPageViewController: UIViewController {
             self.IntroTextView.isHidden = true
             self.buttonsView.isHidden = false
             // create buttons here
-//            buttonsView.addSubview((makeButtonWithText(text: "Lavalab")))
-//            buttonsView.addSubview((makeButtonWithText(text: "USC Field Hockey")))
+            buttonsView.addSubview((makeButtonWithText(text: "Lavalab")))
+            makeTeamLeaderButton(text: "USC Field Hockey")
             
         }
         newUser = false
@@ -94,11 +94,54 @@ class TeamPageViewController: UIViewController {
        
     }
     
+    // use this function for team leaders
+    func makeTeamLeaderButton(text: String) {
+        let myButton = UIButton(type: UIButtonType.system)
+        //Set a frame for the button. Ignored in AutoLayout/ Stack Views
+        
+        myButton.frame = CGRect(x: 68, y: currY, width: 200, height: 50)
+        let buttonBackground = UIImage(named: "Team Name 2")
+        
+        myButton.layer.cornerRadius = 5
+       
+        myButton.setBackgroundImage(buttonBackground, for: UIControlState.normal)
+        
+        
+        myButton.titleLabel?.textAlignment = NSTextAlignment.center
+        myButton.setTitle(text, for: UIControlState.normal)
+        myButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        
+        
+        myButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+        myButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        myButton.layer.shadowOpacity = 0.3
+        
+       
+            let leaderButton = UIButton(type: UIButtonType.system)
+            //leaderButton.frame = CGRect(x: 18, y: currY, width: 50, height: 50)
+            let leaderPic = UIImage(named: "leaderButton")
+            leaderButton.setBackgroundImage(leaderPic, for: UIControlState.normal)
+            leaderButton.frame = CGRect(x: 38, y: currY+3, width: 30, height: 35)
+        
+            
+        
+        
+        leaderButton.addTarget(self, action: #selector(toTeamData), for: .touchUpInside)
+        myButton.addTarget(self,
+                           action: #selector(helloButton),
+                           for: .touchUpInside
+        )
+        
+        currY += 58
+        self.buttonsView.addSubview(myButton)
+        self.buttonsView.addSubview(leaderButton)
+        
+    }
     
     func makeButtonWithText(text:String) -> UIButton {
         let myButton = UIButton(type: UIButtonType.system)
         //Set a frame for the button. Ignored in AutoLayout/ Stack Views
-        myButton.frame = CGRect(x: 18, y: currY, width: 200, height: 50)
+        myButton.frame = CGRect(x: 68, y: currY, width: 200, height: 50)
         
         let buttonBackground = UIImage(named: "Team Name 2")
         
@@ -116,9 +159,6 @@ class TeamPageViewController: UIViewController {
         myButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
         myButton.layer.shadowOffset = CGSize(width: 5, height: 5)
         myButton.layer.shadowOpacity = 0.3
-        
-        
-        //myButton.titleEdgeInsets = UIEdgeInsetsMake(100, 10, 0, 0)
      
         
         myButton.addTarget(self,
@@ -130,6 +170,10 @@ class TeamPageViewController: UIViewController {
     }
     @IBAction func helloButton(sender:UIButton){
         self.performSegue(withIdentifier: "toEventPageSegue", sender: self)
+    }
+    
+    @IBAction func toTeamData(sender:UIButton){
+        self.performSegue(withIdentifier: "toTeamDataSegue", sender: self)
     }
     
     @objc func timeToMoveOn() {

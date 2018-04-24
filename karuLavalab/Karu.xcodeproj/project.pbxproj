@@ -29,6 +29,7 @@
 		FD92384D20768AF700ABC194 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD92384C20768AF700ABC194 /* CollectionViewCell.swift */; };
 		FD9FC5DF2086FE1C005F2B58 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9FC5DE2086FE1C005F2B58 /* BeginViewController.swift */; };
 		FDADDFF920853105005ECF25 /* TeamPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDADDFF820853105005ECF25 /* TeamPageViewController.swift */; };
+		FDDE233E208F10C400F1F2C9 /* TeamLeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDE233D208F10C400F1F2C9 /* TeamLeaderViewController.swift */; };
 		FDE2488F206838AA00FA1CDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE2488E206838AA00FA1CDC /* AppDelegate.swift */; };
 		FDE24891206838AA00FA1CDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE24890206838AA00FA1CDC /* ViewController.swift */; };
 		FDE24894206838AA00FA1CDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDE24892206838AA00FA1CDC /* Main.storyboard */; };
@@ -80,6 +81,7 @@
 		FD92384C20768AF700ABC194 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FD9FC5DE2086FE1C005F2B58 /* BeginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginViewController.swift; sourceTree = "<group>"; };
 		FDADDFF820853105005ECF25 /* TeamPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPageViewController.swift; sourceTree = "<group>"; };
+		FDDE233D208F10C400F1F2C9 /* TeamLeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamLeaderViewController.swift; sourceTree = "<group>"; };
 		FDE2488B206838AA00FA1CDC /* Karu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Karu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE2488E206838AA00FA1CDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDE24890206838AA00FA1CDC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				FD3E32A1207C551A005E1CA3 /* LogInViewController.swift */,
 				FDE24890206838AA00FA1CDC /* ViewController.swift */,
 				FDE24892206838AA00FA1CDC /* Main.storyboard */,
+				FDDE233D208F10C400F1F2C9 /* TeamLeaderViewController.swift */,
 				D21D1046208E91E700DC2EF9 /* LogViewController.swift */,
 				D2D8ED75208D31E00095C134 /* DataModels.swift */,
 				D2D8ED7B208D77860095C134 /* CreateTeamViewController.swift */,
@@ -417,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDDE233E208F10C400F1F2C9 /* TeamLeaderViewController.swift in Sources */,
 				FD3E32A4207C56D9005E1CA3 /* IntroSegue.swift in Sources */,
 				FD612CE7208D606400CE3AF3 /* OrgViewController.swift in Sources */,
 				FD19A230208BC8130015E12E /* LeftSwipeSegue.swift in Sources */,

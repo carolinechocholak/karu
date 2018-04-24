@@ -26,9 +26,18 @@ class CreateTeamViewController: UIViewController {
     
     
     @IBOutlet weak var createTeamButton: UIButton!
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        teamNameField.setBottomBorder()
+        teamMissionField.layer.borderWidth = 1.0
+        teamMissionField.layer.borderColor = UIColor.gray.cgColor
+        teamMissionField.layer.cornerRadius = 5.0
+        teamCityField.setBottomBorder()
+        teamSchoolField.setBottomBorder()
+        teamWebsiteField.setBottomBorder()
+        teamEmailField.setBottomBorder()
+        teamCodeField.setBottomBorder()
         
         // Do any additional setup after loading the view.
     }
@@ -40,7 +49,7 @@ class CreateTeamViewController: UIViewController {
     @IBAction func createTeamPressed(_ sender: Any) {
         createTeam()
     }
-    
+   
     fileprivate func createTeam() {
         guard let teamName = teamNameField.text,
         let teamMission = teamMissionField.text,
@@ -67,6 +76,11 @@ class CreateTeamViewController: UIViewController {
         
     }
     
+    
+    @IBAction func doneEditing(_ sender: Any) {
+        self.resignFirstResponder()
+    }
+    
     /*
      // MARK: - Navigation
      
@@ -77,5 +91,17 @@ class CreateTeamViewController: UIViewController {
      }
      */
     
+}
+extension UITextField {
+    func setBottomBorder() {
+        self.borderStyle = .none
+        self.layer.backgroundColor = UIColor.white.cgColor
+        
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 0.0
+    }
 }
 

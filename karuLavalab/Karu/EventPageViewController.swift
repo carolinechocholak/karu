@@ -44,11 +44,11 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
                     // change tag property
        // self.view.addSubview(myButton) // add to view as subview
 
-        if(Auth.auth().currentUser == nil) {
-            DispatchQueue.main.sync {
-                Auth.auth().signIn(withEmail: "hello@gmail.com", password: "testtest")
-            }
-        }
+//        if(Auth.auth().currentUser == nil) {
+//            DispatchQueue.main.sync {
+//                Auth.auth().signIn(withEmail: "hello@gmail.com", password: "testtest")
+//            }
+//        }
         
         getEvents()
         getTeams()
