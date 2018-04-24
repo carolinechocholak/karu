@@ -81,6 +81,7 @@ final class LocalCollection<T: DocumentSerializable> {
                 if let model = T(dictionary: document.data()) {
                     return model
                 } else {
+                    
                     // handle error
                     fatalError("Unable to initialize type \(T.self) with dictionary \(document.data())")
                 }

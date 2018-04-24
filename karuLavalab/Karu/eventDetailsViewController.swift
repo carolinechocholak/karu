@@ -29,6 +29,8 @@ class UILabelPadding: UILabel {
 
 class eventDetailsViewController: UIViewController {
 
+    var event: Event!
+    
     @IBOutlet weak var NotGoingButton: UIButton!
     @IBOutlet weak var GoingButton: UIButton!
     @IBOutlet weak var updateButton: UIButton!
@@ -41,7 +43,8 @@ class eventDetailsViewController: UIViewController {
     @IBOutlet weak var locationDetail: UILabelPadding!
     
     override func viewDidLoad() {
-         super.viewDidLoad()
+        setFields()
+        super.viewDidLoad()
         self.titleLabel.text = "Cycle For Survival"
         
         let updateColor = UIColor(displayP3Red: 89.0/255.0, green: 183.0/255.0, blue: 211.0/255.0, alpha: 1.0)
@@ -91,7 +94,13 @@ class eventDetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
+    func setFields() {
+        titleLabel.text = event.name
+        timeLabel.text = event.time
+        announcementsDetail.text = event.announcements
+        dateDetail.text = event.date
+        locationDetail.text = event.location
+    }
     
     @IBAction func updateTouched(_ sender: Any) {
         self.updateButton.isHidden = true

@@ -357,7 +357,7 @@ YUVO</string>
         <!--Event Page View Controller-->
         <scene sceneID="yMO-Ln-IDA">
             <objects>
-                <viewController id="vJE-hm-nSB" customClass="EventPageViewController" customModule="Karu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventPageViewController" id="vJE-hm-nSB" customClass="EventPageViewController" customModule="Karu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IQy-Rc-zXV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1122,8 +1122,10 @@ Hours</string>
                     <connections>
                         <outlet property="buttonStackView" destination="hvS-Ko-VuW" id="wYl-Tt-Yhv"/>
                         <outlet property="dataStackView" destination="HV0-cS-EWe" id="JOB-I6-6WX"/>
+                        <outlet property="nameLabel" destination="xSo-Ky-RoL" id="Vli-ec-zqU"/>
                         <outlet property="nameStackView" destination="blF-Az-xgh" id="xgp-Q0-gWf"/>
                         <outlet property="profilePic" destination="QVt-BQ-5ew" id="1jc-Ug-fMu"/>
+                        <outlet property="teamCountLabel" destination="cSZ-4W-xZZ" id="caf-Nt-eum"/>
                         <segue destination="8Qi-V3-drg" kind="show" identifier="orgToGroupSegue" animates="NO" id="2hP-Md-mJS"/>
                     </connections>
                 </viewController>
@@ -1297,10 +1299,10 @@ Hours</string>
             </objects>
             <point key="canvasLocation" x="1685.5999999999999" y="888.30584707646187"/>
         </scene>
-        <!--Create Team View Controller-->
+        <!--CreateTeamViewController-->
         <scene sceneID="4Ar-8f-OTw">
             <objects>
-                <viewController id="aaC-E8-eEy" customClass="CreateTeamViewController" customModule="Karu" sceneMemberID="viewController">
+                <viewController title="CreateTeamViewController" id="aaC-E8-eEy" customClass="CreateTeamViewController" customModule="Karu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="USb-w2-CQz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1394,15 +1396,6 @@ Hours</string>
                                     <constraint firstAttribute="height" constant="108" id="2nD-ab-dZl"/>
                                 </constraints>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Team Code: 1234" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I87-p3-Yf4">
-                                <rect key="frame" x="16" y="387" width="343" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="y3a-Xd-pTk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axf-uf-wxy">
                                 <rect key="frame" x="16" y="595" width="343" height="53"/>
                                 <color key="backgroundColor" red="0.5490196078431373" green="0.81176470588235294" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
@@ -1411,9 +1404,16 @@ Hours</string>
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8Qi-V3-drg" kind="custom" identifier="createTeamDone" customClass="IntroSegue" customModule="Karu" customModuleProvider="target" id="byg-VX-zO6"/>
+                                    <action selector="createTeamPressed:" destination="aaC-E8-eEy" eventType="touchUpInside" id="LNr-AG-BoJ"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJn-bV-iz1">
+                                <rect key="frame" x="10" y="398" width="349" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1427,14 +1427,12 @@ Hours</string>
                             <constraint firstItem="uso-SN-Xzg" firstAttribute="top" secondItem="USb-w2-CQz" secondAttribute="top" id="EQs-Ho-hNH"/>
                             <constraint firstItem="esB-5I-585" firstAttribute="top" secondItem="qMW-Ly-23w" secondAttribute="bottom" constant="8" id="M0a-cp-1PL"/>
                             <constraint firstItem="3QL-se-x73" firstAttribute="trailing" secondItem="Ihu-Cm-9yW" secondAttribute="trailing" constant="16" id="Oxd-ut-ccO"/>
-                            <constraint firstItem="3QL-se-x73" firstAttribute="trailing" secondItem="I87-p3-Yf4" secondAttribute="trailing" constant="16" id="PHj-iG-bIU"/>
                             <constraint firstItem="Ihu-Cm-9yW" firstAttribute="leading" secondItem="qMW-Ly-23w" secondAttribute="trailing" constant="8" id="Q78-Eg-Nr4"/>
                             <constraint firstItem="Ia7-Te-oDN" firstAttribute="top" secondItem="3QL-se-x73" secondAttribute="top" constant="13" id="QYq-LK-vDF"/>
                             <constraint firstItem="hXX-W5-tcl" firstAttribute="top" secondItem="3QL-se-x73" secondAttribute="top" constant="9" id="TYE-qm-SXj"/>
                             <constraint firstItem="qMW-Ly-23w" firstAttribute="top" secondItem="Ia7-Te-oDN" secondAttribute="bottom" constant="26" id="Ta1-dB-m8j"/>
-                            <constraint firstItem="Axf-uf-wxy" firstAttribute="top" secondItem="I87-p3-Yf4" secondAttribute="bottom" constant="158" id="YWH-gf-t5d"/>
                             <constraint firstItem="3QL-se-x73" firstAttribute="trailing" secondItem="esB-5I-585" secondAttribute="trailing" constant="10" id="bC6-u3-ZN5"/>
-                            <constraint firstItem="I87-p3-Yf4" firstAttribute="leading" secondItem="3QL-se-x73" secondAttribute="leading" constant="16" id="fG4-ai-Y8M"/>
+                            <constraint firstAttribute="leading" secondItem="3QL-se-x73" secondAttribute="leading" constant="16" id="fG4-ai-Y8M"/>
                             <constraint firstItem="uso-SN-Xzg" firstAttribute="leading" secondItem="3QL-se-x73" secondAttribute="leading" id="fVk-uU-cia"/>
                             <constraint firstItem="IZ4-wx-bOB" firstAttribute="leading" secondItem="3QL-se-x73" secondAttribute="leading" constant="10" id="j2B-ZS-9ff"/>
                             <constraint firstItem="3QL-se-x73" firstAttribute="bottom" secondItem="Axf-uf-wxy" secondAttribute="bottom" constant="19" id="kaC-HY-T79"/>
@@ -1446,16 +1444,20 @@ Hours</string>
                             <constraint firstItem="3QL-se-x73" firstAttribute="trailing" secondItem="IZ4-wx-bOB" secondAttribute="trailing" constant="10" id="prt-m5-yhz"/>
                             <constraint firstItem="uso-SN-Xzg" firstAttribute="trailing" secondItem="3QL-se-x73" secondAttribute="trailing" id="rFc-Hp-Z1W"/>
                             <constraint firstItem="Ihu-Cm-9yW" firstAttribute="top" secondItem="hXX-W5-tcl" secondAttribute="bottom" constant="33" id="tmu-9u-mA4"/>
-                            <constraint firstItem="I87-p3-Yf4" firstAttribute="top" secondItem="IZ4-wx-bOB" secondAttribute="bottom" constant="8" id="yxg-Bl-xBu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3QL-se-x73"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="createTeamButton" destination="Axf-uf-wxy" id="5Rc-BL-YNT"/>
                         <outlet property="teamCityField" destination="69u-ih-QqI" id="GhN-hB-5pT"/>
+                        <outlet property="teamCodeField" destination="UJn-bV-iz1" id="5IM-kw-vl8"/>
+                        <outlet property="teamEmailField" destination="uZb-yz-sjf" id="E7h-jX-gWI"/>
                         <outlet property="teamMissionField" destination="esB-5I-585" id="4y6-dk-y3Z"/>
                         <outlet property="teamNameField" destination="Ihu-Cm-9yW" id="pMr-L2-uf5"/>
                         <outlet property="teamSchoolField" destination="DVP-oj-fGZ" id="0Xg-kD-M23"/>
+                        <outlet property="teamWebsiteField" destination="YUT-Qg-D7f" id="h52-N6-4RR"/>
+                        <segue destination="8Qi-V3-drg" kind="custom" identifier="CreateTeamFinished" customClass="IntroSegue" customModule="Karu" customModuleProvider="target" id="ftT-wB-zoF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtE-fo-dWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1465,7 +1467,7 @@ Hours</string>
         <!--LogViewController-->
         <scene sceneID="JZu-Oe-yHo">
             <objects>
-                <viewController id="em7-BP-S9H" userLabel="LogViewController" customClass="LogViewController" customModule="Karu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="em7-BP-S9H" userLabel="LogViewController" customClass="LogViewController" customModule="Karu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fjU-Af-DXQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1637,7 +1639,9 @@ Hours</string>
                         <viewLayoutGuide key="safeArea" id="uJj-am-Nn3"/>
                     </view>
                     <connections>
+                        <outlet property="nameLabel" destination="vXP-Kt-2zV" id="Ygy-vz-w39"/>
                         <outlet property="tableView" destination="m5r-yT-CR6" id="W1i-hK-ulo"/>
+                        <outlet property="teamCountLabel" destination="ytJ-X5-sm1" id="dpo-ot-tA8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Gy-cP-2Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1672,7 +1676,7 @@ Hours</string>
     <inferredMetricsTieBreakers>
         <segue reference="1nM-bT-2ES"/>
         <segue reference="vL5-qR-v2B"/>
-        <segue reference="IJ5-lf-QkY"/>
+        <segue reference="MVS-Cc-LxJ"/>
         <segue reference="XOO-L6-B5f"/>
         <segue reference="BzX-wo-Myx"/>
     </inferredMetricsTieBreakers>

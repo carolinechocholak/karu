@@ -18,6 +18,14 @@ class CreateTeamViewController: UIViewController {
     
     @IBOutlet weak var teamSchoolField: UITextField!
     
+    @IBOutlet weak var teamWebsiteField: UITextField!
+    
+    @IBOutlet weak var teamEmailField: UITextField!
+    
+    @IBOutlet weak var teamCodeField: UITextField!
+    
+    
+    @IBOutlet weak var createTeamButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +37,35 @@ class CreateTeamViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func createTeamPressed(_ sender: Any) {
+        createTeam()
+    }
     
+    fileprivate func createTeam() {
+        guard let teamName = teamNameField.text,
+        let teamMission = teamMissionField.text,
+        let teamCity = teamCityField.text,
+        let teamSchool = teamSchoolField.text,
+        let teamWebsite = teamWebsiteField.text,
+        let teamEmail = teamEmailField.text,
+        let teamCode = teamCodeField.text else {
+            return
+        }
+        let team = Team(name: teamName, city: teamCity, code: teamCode, mission: teamMission, school: teamSchool, website: teamWebsite, email: teamEmail)
+        let teamsRef = Firestore.firestore().collection("Teams")
+        var ref: DocumentReference? = nil
+        ref = teamsRef.addDocument(data: team.dictionary) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+                self.performSegue(withIdentifier: "CreateTeamFinished", sender: nil)
+            }
+        }
+            
+
+        
+    }
     
     /*
      // MARK: - Navigation

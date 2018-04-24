@@ -33,7 +33,7 @@ class TeamPageViewController: UIViewController {
         
         nameLabel.text = displayName
        
-        getTeamCount()
+        getTeamInfo()
         if newUser != nil { // display new message
             self.IntroLabel.isHidden = false
             self.IntroTextView.isHidden = false
@@ -43,8 +43,8 @@ class TeamPageViewController: UIViewController {
             self.IntroTextView.isHidden = true
             self.buttonsView.isHidden = false
             // create buttons here
-            buttonsView.addSubview((makeButtonWithText(text: "Lavalab")))
-            buttonsView.addSubview((makeButtonWithText(text: "USC Field Hockey")))
+//            buttonsView.addSubview((makeButtonWithText(text: "Lavalab")))
+//            buttonsView.addSubview((makeButtonWithText(text: "USC Field Hockey")))
             
         }
         newUser = false
@@ -53,7 +53,8 @@ class TeamPageViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    fileprivate func getTeamCount() {
+    
+    fileprivate func getTeamInfo() {
         let user = Auth.auth().currentUser
         let uid = user!.uid
         let teamsRef = Firestore.firestore().collection("Teams")
@@ -62,11 +63,22 @@ class TeamPageViewController: UIViewController {
             if let err = err {
                 print("Error getting docs: \(err)")
             } else {
-                print(String(querysnapshot!.count) + " Count " )
-                self.teamCountLabel.text = (String(querysnapshot!.count) + "\n Teams")
+                self.setTeamCount(querySnapshot: querysnapshot!)
+                self.setTeamButtons(querySnapshot: querysnapshot!)
             }
         }
     }
+    func setTeamCount(querySnapshot: QuerySnapshot) {
+        self.teamCountLabel.text = (String(querySnapshot.count) + "\n Teams")
+    }
+    func setTeamButtons(querySnapshot: QuerySnapshot) {
+        querySnapshot.documents.forEach({(document) in
+            let team = Team(dictionary: document.data())
+            self.buttonsView.addSubview((self.makeButtonWithText(text: team!.name)))
+        })
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
