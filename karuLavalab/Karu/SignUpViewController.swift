@@ -17,6 +17,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBOutlet weak var EmailTF: UITextField!
     @IBOutlet weak var NameTF: UITextField!
     @IBOutlet weak var Background: UIImageView!
+    
+    @IBOutlet weak var volunteerButton: UIButton!
+    
+    @IBOutlet weak var orgButton: UIButton!
+    
     let recognizer = UITapGestureRecognizer()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +102,27 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UINavigationC
         return true
     }
     
+    
+    @IBAction func volunteerPressed(_ sender: Any) {
+        let pressed = UIImage(named: "rectanglePressed")
+        self.volunteerButton.setBackgroundImage(pressed, for: UIControlState.normal)
+        self.volunteerButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        let notPressed = UIImage(named: "Rectangle 2")
+        self.orgButton.setBackgroundImage(notPressed, for: UIControlState.normal)
+        let custom = UIColor(displayP3Red: 0/255.0, green: 187.0/255.0, blue: 224.0/255.0, alpha: 1.0)
+        self.orgButton.setTitleColor(custom, for: UIControlState.normal)
+        
+    }
+    
+    @IBAction func orgPressed(_ sender: Any) {
+        let pressed = UIImage(named: "rectanglePressed")
+        self.orgButton.setBackgroundImage(pressed, for: UIControlState.normal)
+        self.orgButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        let notPressed = UIImage(named: "Rectangle 2")
+        self.volunteerButton.setBackgroundImage(notPressed, for: UIControlState.normal)
+        let custom = UIColor(displayP3Red: 0/255.0, green: 187.0/255.0, blue: 224.0/255.0, alpha: 1.0)
+        self.volunteerButton.setTitleColor(custom, for: UIControlState.normal)
+    }
     
     // MARK: - Navigation
 

@@ -58,7 +58,7 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
         myButton.tintColor = UIColor(displayP3Red: 0, green: 255, blue: 0, alpha: 0.4)
         
         
-        myButton.showsTouchWhenHighlighted = true
+        
         
        let newImage = UIImage(named: "AvailableBanner")
         let image = UIImageView(image: newImage)
@@ -91,12 +91,10 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
         label.text = text
         myButton.addSubview(label)
         
-      
+        
         label.leftAnchor.constraint(equalTo: myButton.leftAnchor, constant: 2.0).isActive = true
        
-        label.bottomAnchor.constraint(equalTo: myButton.bottomAnchor, constant: -20.0).isActive = true
-       
-       
+        label.bottomAnchor.constraint(equalTo: myButton.bottomAnchor, constant: 0.0).isActive = true
         myButton.addTarget(self,
                            action: #selector(helloButton),
                            for: .touchUpInside
@@ -128,20 +126,28 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.orgName.text = self.items[indexPath.item]
-       
-        //cell.orgName.backgroundColor = UIColor.clear
-        
-        cell.backgroundColor = UIColor.white
-        cell.alpha = 0.4
-        cell.orgName.backgroundColor = UIColor.clear
-        cell.orgName.alpha = 1
-        cell.orgName.textColor = UIColor.black
-        
-        
-        
-        
-        
-        
+        cell.orgName.highlightedTextColor = UIColor.white
+        if indexPath.item == 0 {
+            cell.layer.cornerRadius = 5.0
+            cell.layer.masksToBounds = true
+            cell.backgroundColor = UIColor.white
+            cell.orgName.textColor = UIColor.white
+            cell.orgName.alpha = 1
+            cell.orgName.backgroundColor = UIColor(displayP3Red: 0/255.0, green: 187.0/255.0, blue: 100/255.0, alpha: 1.0)
+            cell.alpha = 1.0
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+        }
+        else {
+            cell.backgroundColor = UIColor.white
+            cell.alpha = 0.4
+            cell.orgName.backgroundColor = UIColor.clear
+            cell.orgName.alpha = 1
+            cell.orgName.textColor = UIColor.black
+            cell.layer.cornerRadius = 5.0
+            cell.layer.masksToBounds = true
+            
+        }
+        cell.orgName.isUserInteractionEnabled = true
         return cell
       
       
@@ -152,10 +158,23 @@ class EventPageViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         selectedIndex = indexPath.row
-        //eventScrollView.reloadData();
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionViewCell
+        print (self.items[indexPath.item])
+//        cell.orgName.text = self.items[indexPath.item]
+        cell.orgName.text =  "HELLO!"
+        cell.reloadInputViews()
         
         
        
+    }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionViewCell
+        cell.backgroundColor = UIColor.white
+        cell.alpha = 0.4
+        cell.orgName.backgroundColor = UIColor.clear
+        cell.orgName.alpha = 1
+        cell.orgName.textColor = UIColor.black
+        
     }
 
 }
